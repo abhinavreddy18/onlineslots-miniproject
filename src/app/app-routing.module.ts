@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { SuperhomeComponent } from './supermarkets/superhome/superhome.component';
+import { GooglemapsComponent } from './googlemaps/googlemaps.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
@@ -30,6 +31,10 @@ const routes: Routes = [
   
   {
     path: 'super-home', component: SuperhomeComponent,
+  },
+
+  {
+    path: 'google-map', component: GooglemapsComponent,
   },
 
   {

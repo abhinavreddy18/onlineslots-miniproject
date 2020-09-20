@@ -16,6 +16,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SuperhomeComponent } from './supermarkets/superhome/superhome.component';
 import { AboutComponent } from './about/about.component';
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
+import { SuperSlotComponent } from './supermarkets/super-slot/super-slot.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { GooglemapsComponent } from './googlemaps/googlemaps.component';
     SuperhomeComponent,
     AboutComponent,
     GooglemapsComponent,
+    SuperSlotComponent,
    
   ],
   imports: [

@@ -37,8 +37,7 @@ export class GooglemapsComponent implements OnInit {
 
   
   marker.on('click', function onClick(){
-    alert("clicked");
-    this.router.navigateByUrl("/dashboard");
+    this.router.navigateByUrl("/super-slot");
   }.bind(this));
   
   }

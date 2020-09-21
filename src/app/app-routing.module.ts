@@ -9,6 +9,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { SuperhomeComponent } from './supermarkets/superhome/superhome.component';
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
+import { SuperSlotComponent } from './supermarkets/super-slot/super-slot.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
@@ -37,6 +39,13 @@ const routes: Routes = [
     path: 'google-map', component: GooglemapsComponent,
   },
 
+  {
+    path: 'super-slot', component: SuperSlotComponent,
+  },
+  
+  {
+    path: 'contact', component: ContactComponent,
+  },
   {
     path: 'bootstrap-prototype',
     loadChildren: () => import('./modules/application/example-bootstrap-prototype/example-bootstrap-prototype.module')

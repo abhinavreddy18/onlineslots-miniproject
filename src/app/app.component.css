@@ -1,4 +1,8 @@
 .footer {
-    background: #3F729B;
+    background: DodgerBlue;
     padding: 2em;
+}
+
+.header_back {
+    background: MediumSeaGreen;
 }

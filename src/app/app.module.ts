@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { GoogleMapsModule } from '@angular/google-maps'
 
@@ -18,6 +21,11 @@ import { AboutComponent } from './about/about.component';
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
 import { SuperSlotComponent } from './supermarkets/super-slot/super-slot.component';
 import { ContactComponent } from './contact/contact.component';
+import { SignupComponent } from './signup/signup.component';
+import { SuperlistComponent } from './supermarkets/superlist/superlist.component';
+import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
+import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +40,10 @@ import { ContactComponent } from './contact/contact.component';
     GooglemapsComponent,
     SuperSlotComponent,
     ContactComponent,
+    SignupComponent,
+    SuperlistComponent,
+    HospitalhomeComponent,
+    HsopitallistComponent,
    
   ],
   imports: [
@@ -39,6 +51,9 @@ import { ContactComponent } from './contact/contact.component';
     AppRoutingModule,
     MatButtonModule,
     GoogleMapsModule,
+    MatListModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     MatGridListModule
   ],
   providers: [],

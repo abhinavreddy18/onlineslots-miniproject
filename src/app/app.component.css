@@ -1,8 +1,8 @@
 .footer {
-    background: DodgerBlue;
+    background: #d869e2;
     padding: 2em;
 }
 
-.header_back {
-    background: MediumSeaGreen;
+.header_back .navbar {
+    background: #a0d172;
 }

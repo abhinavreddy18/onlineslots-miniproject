@@ -11,6 +11,11 @@ import { SuperhomeComponent } from './supermarkets/superhome/superhome.component
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
 import { SuperSlotComponent } from './supermarkets/super-slot/super-slot.component';
 import { ContactComponent } from './contact/contact.component';
+import { SignupComponent } from'./signup/signup.component';
+import { SuperlistComponent } from './supermarkets/superlist/superlist.component'
+import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
+import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
+
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
@@ -25,6 +30,9 @@ const routes: Routes = [
 
   {
     path: 'signin', component: LoginComponent,
+  },
+  {
+    path: 'signup', component: SignupComponent,
   },
 
   {
@@ -45,6 +53,15 @@ const routes: Routes = [
   
   {
     path: 'contact', component: ContactComponent,
+  },
+  {
+    path: 'super-list', component: SuperlistComponent,
+  },
+  {
+    path: 'hospital-home', component:  HospitalhomeComponent,
+  },
+  {
+    path:'hospital-list', component: HsopitallistComponent,
   },
   {
     path: 'bootstrap-prototype',

@@ -18,4 +18,8 @@ export class SuperhomeComponent implements OnInit {
     this.router.navigateByUrl("/google-map");
   }
 
+  navigateToList(){
+    this.router.navigateByUrl("/super-list");
+  }
+
 }

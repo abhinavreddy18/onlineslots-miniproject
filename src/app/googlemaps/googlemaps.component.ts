@@ -42,4 +42,20 @@ export class GooglemapsComponent implements OnInit {
   
   }
 
+  x = document.getElementById("demo");
+getLocation() {
+  console.log("into map");
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(this.showPosition);
+  } else {
+    this.x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+showPosition(position) {
+  console.log("into map show");
+  this.x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+
 }

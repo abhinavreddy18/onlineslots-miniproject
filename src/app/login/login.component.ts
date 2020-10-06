@@ -20,4 +20,9 @@ export class LoginComponent implements OnInit {
     this.closebutton.nativeElement.click();
     this.router.navigateByUrl("/dashboard");
   }
+
+  
+  navigatetosigup(){
+    this.router.navigateByUrl("/signup");
+  }
 }

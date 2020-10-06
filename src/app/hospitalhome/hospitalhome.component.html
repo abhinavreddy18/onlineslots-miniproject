@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 align-self-center">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title jumbotron centre">Bookslot for hospital</h5>
+                    <h6 class="card-subtitle mb-2 text-muted centre">Save your time and be safe</h6>
+                    <p class="card-text centre">Select your hospital to proceed</p>
+                    <div class="centre">
+                        <a mat-button><i class="fa fa-heartbeat centre"  (click)="navigateToHospitalList()"style="font-size:48px;color:red"></i></a>
+                        <a mat-button><i class="fa fa-map-marker fa-lg"  (click)="navigateToGooglemaps()" style="font-size:48px;color:blue"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile><img src="../assets/images/diagnoistics.jpg" height=200></mat-grid-tile>
+        <mat-grid-tile><img src="../assets/images/doctor.jpg" height=200></mat-grid-tile>
+        <mat-grid-tile><img src="../assets/images/physio.jpg" height=200></mat-grid-tile>
+        <mat-grid-tile><img src="../assets/images/visit.jpg" height=200></mat-grid-tile>
+    </mat-grid-list>

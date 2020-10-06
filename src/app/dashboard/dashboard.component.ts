@@ -16,4 +16,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl("/super-home");
 
   }
+
+  navigateToHospitalHome(){
+    this.router.navigateByUrl("/hospital-home");
+
+  }
+
 }

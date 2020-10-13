@@ -25,6 +25,8 @@ import { SignupComponent } from './signup/signup.component';
 import { SuperlistComponent } from './supermarkets/superlist/superlist.component';
 import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
 import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
+import { MallshomepageComponent } from './mallshomepage/mallshomepage.component';
+import { MallslistComponent } from './mallslist/mallslist.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
     SuperlistComponent,
     HospitalhomeComponent,
     HsopitallistComponent,
+    MallshomepageComponent,
+    MallslistComponent,
    
   ],
   imports: [

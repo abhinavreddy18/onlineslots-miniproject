@@ -22,4 +22,9 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  navigateToMallHome(){
+    this.router.navigateByUrl("/mall-home");
+
+  }
+
 }

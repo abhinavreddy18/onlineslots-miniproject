@@ -15,6 +15,8 @@ import { SignupComponent } from'./signup/signup.component';
 import { SuperlistComponent } from './supermarkets/superlist/superlist.component'
 import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
 import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
+import { MallslistComponent } from './mallslist/mallslist.component';
+import { mallshomepageComponent } from './mallshomepage/mallshomepage.component';
 
 
 const routes: Routes = [
@@ -64,6 +66,9 @@ const routes: Routes = [
     path:'hospital-list', component: HsopitallistComponent,
   },
   {
+    path: 'mall-home', component: mallshomepageComponent,
+  },
+  {
     path: 'bootstrap-prototype',
     loadChildren: () => import('./modules/application/example-bootstrap-prototype/example-bootstrap-prototype.module')
       .then(mod => mod.ExampleBootstrapPrototypeModule)
@@ -83,6 +88,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/general/signin/signin.module')
       .then(mod => mod.SigninModule)
   },
+  
   { path: '**', component: NotFoundComponent }
   
 

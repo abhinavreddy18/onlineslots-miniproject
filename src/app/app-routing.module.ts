@@ -17,6 +17,7 @@ import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
 import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
 import { MallslistComponent } from './mallslist/mallslist.component';
 import { mallshomepageComponent } from './mallshomepage/mallshomepage.component';
+import { bankhomepageComponent } from './bankhomepage/bankhomepage.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,9 @@ const routes: Routes = [
   },
   {
     path: 'mall-home', component: mallshomepageComponent,
+  },
+  {
+    path: 'bank-home', component: bankhomepageComponent,
   },
   {
     path: 'bootstrap-prototype',

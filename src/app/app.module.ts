@@ -27,6 +27,7 @@ import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
 import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
 import { mallshomepageComponent } from './mallshomepage/mallshomepage.component';
 import { MallslistComponent } from './mallslist/mallslist.component';
+import { bankhomepageComponent } from './bankhomepage/bankhomepage.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MallslistComponent } from './mallslist/mallslist.component';
     HsopitallistComponent,
     mallshomepageComponent,
     MallslistComponent,
+    bankhomepageComponent
    
   ],
   imports: [

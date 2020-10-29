@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 align-self-center">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title jumbotron centre">Bookslot for Bank</h5>
+                    <h6 class="card-subtitle mb-2 text-muted centre">Save your time and be safe</h6>
+                    <p class="card-text centre">Select your Bank to proceed</p>
+                    <div class="centre">
+                        <a mat-button><i class="material-icons centre"  (click)="navigateTobanklist()"style="font-size:48px;color:pink"></i></a>
+                        <a mat-button><i class="fa fa-map-marker fa-lg"  (click)="navigateToGooglemaps()" style="font-size:48px;color:blue"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile><img src="../assets/images/bank1.jpg" height=200></mat-grid-tile>
+        <mat-grid-tile><img src="../assets/images/bank2.jpg" height=200></mat-grid-tile>
+        <mat-grid-tile><img src="../assets/images/bank3.jpg" height=200></mat-grid-tile>
+        <mat-grid-tile><img src="../assets/images/bank4.jpg" height=200></mat-grid-tile>
+    </mat-grid-list>

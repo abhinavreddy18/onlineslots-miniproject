@@ -27,4 +27,9 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  navigateToBankHome(){
+    this.router.navigateByUrl("/bank-home");
+
+  }
+
 }

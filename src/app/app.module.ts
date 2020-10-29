@@ -28,6 +28,8 @@ import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
 import { mallshomepageComponent } from './mallshomepage/mallshomepage.component';
 import { MallslistComponent } from './mallslist/mallslist.component';
 import { bankhomepageComponent } from './bankhomepage/bankhomepage.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { GeojsonComponent } from './geojson/geojson.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { bankhomepageComponent } from './bankhomepage/bankhomepage.component';
     HsopitallistComponent,
     mallshomepageComponent,
     MallslistComponent,
-    bankhomepageComponent
+    bankhomepageComponent,
+    ScheduleComponent,
+    GeojsonComponent
    
   ],
   imports: [

@@ -25,11 +25,15 @@ import { SignupComponent } from './signup/signup.component';
 import { SuperlistComponent } from './supermarkets/superlist/superlist.component';
 import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
 import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
-import { mallshomepageComponent } from './mallshomepage/mallshomepage.component';
-import { MallslistComponent } from './mallslist/mallslist.component';
 import { bankhomepageComponent } from './bankhomepage/bankhomepage.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { GeojsonComponent } from './geojson/geojson.component';
+import { SuperslotComponent } from './forms/superslot/superslot.component';
+
+import { BankslotComponent } from './forms/bankslot/bankslot.component';
+import { HospitalComponent } from './forms/hospital/hospital.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { TaskbarComponent } from './taskbar/taskbar.component';
 
 
 @NgModule({
@@ -49,11 +53,14 @@ import { GeojsonComponent } from './geojson/geojson.component';
     SuperlistComponent,
     HospitalhomeComponent,
     HsopitallistComponent,
-    mallshomepageComponent,
-    MallslistComponent,
     bankhomepageComponent,
     ScheduleComponent,
-    GeojsonComponent
+    GeojsonComponent,
+    SuperslotComponent,
+    BankslotComponent,
+    HospitalComponent,
+    TasksComponent,
+    TaskbarComponent
    
   ],
   imports: [

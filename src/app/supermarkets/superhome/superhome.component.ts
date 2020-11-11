@@ -19,7 +19,7 @@ export class SuperhomeComponent implements OnInit {
   }
 
   navigateToList(){
-    this.router.navigateByUrl("/super-list");
+    this.router.navigateByUrl("/super-form");
   }
 
 }

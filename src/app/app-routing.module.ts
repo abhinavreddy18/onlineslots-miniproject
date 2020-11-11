@@ -9,16 +9,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AboutComponent } from './about/about.component';
 import { SuperhomeComponent } from './supermarkets/superhome/superhome.component';
 import { GooglemapsComponent } from './googlemaps/googlemaps.component';
-import { SuperSlotComponent } from './supermarkets/super-slot/super-slot.component';
 import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from'./signup/signup.component';
 import { SuperlistComponent } from './supermarkets/superlist/superlist.component'
 import {  HospitalhomeComponent } from './hospitalhome/hospitalhome.component';
 import { HsopitallistComponent } from './hsopitallist/hsopitallist.component';
-import { MallslistComponent } from './mallslist/mallslist.component';
-import { mallshomepageComponent } from './mallshomepage/mallshomepage.component';
 import { bankhomepageComponent } from './bankhomepage/bankhomepage.component';
-
+import { SuperslotComponent } from './forms/superslot/superslot.component';
+import { BankslotComponent } from './forms/bankslot/bankslot.component';
+import { HospitalComponent } from './forms/hospital/hospital.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
@@ -50,9 +49,6 @@ const routes: Routes = [
     path: 'google-map', component: GooglemapsComponent,
   },
 
-  {
-    path: 'super-slot', component: SuperSlotComponent,
-  },
   
   {
     path: 'contact', component: ContactComponent,
@@ -67,10 +63,16 @@ const routes: Routes = [
     path:'hospital-list', component: HsopitallistComponent,
   },
   {
-    path: 'mall-home', component: mallshomepageComponent,
+    path: 'bank-home', component: bankhomepageComponent,
   },
   {
-    path: 'bank-home', component: bankhomepageComponent,
+    path: 'super-form',component: SuperslotComponent,
+  },
+  {
+    path: 'bank-form',component: BankslotComponent,
+  },
+  {
+    path:'hospital-form',component: HospitalComponent,
   },
   {
     path: 'bootstrap-prototype',

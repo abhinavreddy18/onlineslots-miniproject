@@ -5,4 +5,17 @@
 
 .header_back .navbar {
     background: #a0d172;
+    color: white;
+}
+
+.navbar-brand {
+    background: #a0d172;
+}
+
+.navbar {
+    background: #d869e2;
+}
+
+.nav-item {
+    color: white;
 }

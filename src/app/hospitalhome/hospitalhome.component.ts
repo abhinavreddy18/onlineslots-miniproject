@@ -20,6 +20,6 @@ export class HospitalhomeComponent implements OnInit {
   }
 
   navigateToHospitalList(){
-    this.router.navigateByUrl("/hospital-list");
+    this.router.navigateByUrl("/hospital-form");
   }
 }

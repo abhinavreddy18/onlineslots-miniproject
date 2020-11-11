@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MallslistComponent } from './mallslist.component';
+import { SuperslotComponent } from './superslot.component';
 
-describe('MallslistComponent', () => {
-  let component: MallslistComponent;
-  let fixture: ComponentFixture<MallslistComponent>;
+describe('SuperslotComponent', () => {
+  let component: SuperslotComponent;
+  let fixture: ComponentFixture<SuperslotComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MallslistComponent ]
+      declarations: [ SuperslotComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MallslistComponent);
+    fixture = TestBed.createComponent(SuperslotComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

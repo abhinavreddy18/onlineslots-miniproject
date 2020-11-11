@@ -20,6 +20,6 @@ export class bankhomepageComponent implements OnInit {
   }
 
   navigateTobanklist(){
-    this.router.navigateByUrl("/bank-list");
+    this.router.navigateByUrl("/bank-form");
   }
 }

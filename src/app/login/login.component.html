@@ -1,16 +1,25 @@
 <div class="card">
     <div class="card-body align-self-center">
         <h2 class="card-title text-primary ">Login</h2>
-        <label>username</label>
-        <input type="text">
-        <br>
-        <label>password</label>
-        <input type="text">
-        <br>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary  center" data-toggle="modal" data-target="#exampleModal">
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <label>username</label>
+            <input type="text" [formControlName]="'username'">
+            <div *ngIf="form.get('username').hasError('required')">
+                Username is a required field
+            </div>
+            <br>
+            <label>password</label>
+            <input type="text" [formControlName]="'password'">
+            <div *ngIf="form.get('password').hasError('required')">
+                Username is a required field
+            </div>
+            <br>
+            <!-- Button trigger modal -->
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+            <button type="button" class="btn btn-primary  center" data-toggle="modal" data-target="#exampleModal">
         Submit
       </button>
+        </form>
 
 
 

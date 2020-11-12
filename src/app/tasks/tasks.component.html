@@ -1,7 +1,10 @@
 <mat-list>
 
-    <mat-list-item> Pepper </mat-list-item>
-    <mat-list-item> Salt </mat-list-item>
-    <mat-list-item> Paprika </mat-list-item>
+    <mat-list-item *ngFor="let slot of display">
+        <p>{{ slot.name }}</p>
+        <br>
+        <p>{{ slot.type }}</p>
+    </mat-list-item>
+
 
 </mat-list>

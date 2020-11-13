@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Slots } from 'src/shared/slots';
@@ -8,7 +9,9 @@ import { Slots } from 'src/shared/slots';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private http: HttpClient) {
+    
+   }
   display : Slots;
   ngOnInit(): void {
   }
@@ -31,5 +34,18 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl("/bank-home");
 
   }
+  test(){
+    console.log();
+  }
+  async fetchDetails(){
+  await this.fetchServiceCall().then(
+     res => {
+       console.log(res);
+     }
+   );
+  }
 
+  fetchServiceCall(){
+    return this.http.get("http://localhost:9080/test").toPromise();
+  }
 }

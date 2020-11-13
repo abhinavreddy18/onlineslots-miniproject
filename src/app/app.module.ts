@@ -7,7 +7,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/general/home/home.component';
@@ -71,6 +72,7 @@ import { TaskbarComponent } from './taskbar/taskbar.component';
     MatListModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatGridListModule
   ],
   providers: [],

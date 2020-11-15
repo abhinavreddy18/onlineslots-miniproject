@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SlotSuper } from 'src/shared/superslot';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { locidcon } from 'src/shared/locateconstant';
+import { Slots } from 'src/shared/slots';
 
 @Component({
   selector: 'app-superslot',
@@ -10,7 +12,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class SuperslotComponent implements OnInit {
 
-  
+  slot : Slots;
   constructor(private readonly fb: FormBuilder,private http: HttpClient) { 
     this.form = this.fb.group({
       name: ['',Validators.required],      
@@ -20,11 +22,23 @@ export class SuperslotComponent implements OnInit {
     });
   }
   s : SlotSuper;
+  
   form: FormGroup;
   ngOnInit(): void {
+    console.log(locidcon);
   }
   submitForm() {
     console.log(this.form.value.name);
+     this.slot= new Slots();
+    this.slot.locid=locidcon.id;
+    this.slot.type=this.form.value.type;
+    this.slot.otp=0;
+    this.slot.longitude=0;
+    this.slot.lattitude=0;
+    this.slot.id=0;
+    this.slot.userid=0;
+    console.log(this.slot);
+    this.fetchSlotCall();
   }
 
   async fetchDetails(){
@@ -36,11 +50,6 @@ export class SuperslotComponent implements OnInit {
     }
 
   fetchSlotCall(){
-    const params = new HttpParams();
-    params.set('time', this.form.value.time)
-    params.set('name', this.form.value.name)
-    params.set('type',this.form.value.type)
-    params.set('email',this.form.value.email);
-    return this.http.get("http://localhost:9080/superslot/",{ params }).toPromise();
+    return this.http.post("http://localhost:9080/superslot",this.slot).toPromise();
   }
 }

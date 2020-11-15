@@ -35,6 +35,7 @@ import { BankslotComponent } from './forms/bankslot/bankslot.component';
 import { HospitalComponent } from './forms/hospital/hospital.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskbarComponent } from './taskbar/taskbar.component';
+import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { TaskbarComponent } from './taskbar/taskbar.component';
     BankslotComponent,
     HospitalComponent,
     TasksComponent,
-    TaskbarComponent
+    TaskbarComponent,
+    Googlemaps2Component
    
   ],
   imports: [

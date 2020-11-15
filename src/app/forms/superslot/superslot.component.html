@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="fetchDetails()">
+<form [formGroup]="form" (ngSubmit)="submitForm() ">
     <label for="mall_name">Select Supermarket:</label>
     <select name="mall_name" id="mall_name" [formControlName]="'name'">
     <option value="super-1">mall-1</option>

@@ -1,41 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { location } from'src/shared/location';
-import { LocationserviceService } from 'src/app/services/locationservice.service';
-declare const L,marker;
+import { Locations1Service } from 'src/app/services/locations1.service';
+import { Super } from'src/shared/super';
 import { locidcon } from 'src/shared/locateconstant';
-import { locate } from 'src/shared/locate';
+declare const L,marker;
 var mymap;
-
 @Component({
-  selector: 'app-googlemaps',
-  templateUrl: './googlemaps.component.html',
-  styleUrls: ['./googlemaps.component.css']
+  selector: 'app-googlemaps2',
+  templateUrl: './googlemaps2.component.html',
+  styleUrls: ['./googlemaps2.component.css']
 })
-export class GooglemapsComponent implements OnInit {
-  
-  constructor(private router:Router,private locationservice: LocationserviceService) {
+export class Googlemaps2Component implements OnInit {
+
+  constructor(private router:Router,private locationservice: Locations1Service) { }
+
+  markets :Super[];
+  async  getLocations() {
+    await this.locationservice.getlocations().then(
+      res=>{
+        
+        this.markets = res as Super[];
+        console.log(this.markets);
+        
+      }
+    );
     
+    
+}
 
-  }
-  locs: location[];
- 
-
- async  getLocations() {
-      await this.locationservice.getlocations().then(
-        res=>{
-          
-          this.locs = res as location[];
-          console.log(this.locs);
-          
-        }
-      );
-      
-      
-  }
-  
   async ngOnInit() {
-    
     await this.getLocations();
     mymap = L.map('mapid').setView([24.5, 24.5], 13);
     var someFeatures = [{
@@ -79,25 +72,19 @@ export class GooglemapsComponent implements OnInit {
 
   
   marker.on('click', function onClick(){
-    
-    locidcon.locid=24;
-    this.router.navigateByUrl("/map-2");
+    locidcon.id=6;
+    this.router.navigateByUrl("/super-form");
   }.bind(this));
   this.setmap();
   }
-  
- setmap(){
-   var i:number;
+  setmap(){
+    var i:number;
    
    var circle;
-  console.log(this.locs);
-  for(i=0;i<this.locs.length;i++)
-  var circle = L.marker([this.locs[i].lattitude,this.locs[i].longitude]).bindTooltip(this.locs[i].name,{ permanent: true }).addTo(mymap);
+  console.log(this.markets);
+  for(i=0;i<this.markets.length;i++)
+  var circle = L.marker([this.markets[i].lattitude,this.markets[i].longitude]).bindTooltip(this.markets[i].market_name,{ permanent: true }).addTo(mymap);
    
-   
- }
+  }
+  
 }
-
-
-
-

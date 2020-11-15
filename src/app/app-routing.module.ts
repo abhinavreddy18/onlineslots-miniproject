@@ -18,6 +18,7 @@ import { bankhomepageComponent } from './bankhomepage/bankhomepage.component';
 import { SuperslotComponent } from './forms/superslot/superslot.component';
 import { BankslotComponent } from './forms/bankslot/bankslot.component';
 import { HospitalComponent } from './forms/hospital/hospital.component';
+import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
@@ -73,6 +74,9 @@ const routes: Routes = [
   },
   {
     path:'hospital-form',component: HospitalComponent,
+  },
+  {
+    path:'map-2',component: Googlemaps2Component,
   },
   {
     path: 'bootstrap-prototype',

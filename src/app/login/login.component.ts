@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/shared/user';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,22 +13,35 @@ export class LoginComponent implements OnInit {
 
   @ViewChild('closebutton') closebutton;
   form: FormGroup;
-  constructor(private router:Router,private readonly fb: FormBuilder) {
+  constructor(private router:Router,private readonly fb: FormBuilder,private http: HttpClient) {
     this.form = this.fb.group({
       username: ['',Validators.required],      
-      password: ['',Validators.required,this.validatorPassword]
+      password: ['',Validators.required]
     });
    }
-
+   user: User;
   ngOnInit(): void {
-    
+     this.user =new User();
   
   }
 
-  navigateToDashboard(){
-    console.log("war");
-    this.closebutton.nativeElement.click();
+  async fetchUser(){
+    return  this.http.post("http://localhost:9080/login",this.user).toPromise();
+  }
+  async navigateToDashboard(){
+   console.log(this.form.value.username);
+    this.user.username=this.form.value.username;
+    this.user.password=this.form.value.password;
+    this.user.valid=0;
+    await this.fetchUser().then(
+      res=>{
+        this.user= res as User;
+      }
+    );
+    console.log(this.user.valid);
+    if(this.user.valid=1){
     this.router.navigateByUrl("/dashboard");
+    }
   }
 
   
@@ -36,7 +51,7 @@ export class LoginComponent implements OnInit {
 
   submitForm() {
     if (this.form.valid) {
-      console.log(this.form.getRawValue());
+      this.navigateToDashboard();
   } else {
       console.log('There is a problem with the form');
   }

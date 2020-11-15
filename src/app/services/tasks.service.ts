@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Slots } from 'src/shared/slots';
 @Injectable({
@@ -5,5 +6,8 @@ import { Slots } from 'src/shared/slots';
 })
 export class TasksService {
   slot : Slots;
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  getTasks(){
+    return this.http.get("http://localhost:9080/slotsdisplay").toPromise();
+  }
 }

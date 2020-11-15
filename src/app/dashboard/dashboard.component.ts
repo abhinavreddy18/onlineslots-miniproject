@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Slots } from 'src/shared/slots';
+import { TasksService } from '../services/tasks.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,11 +10,12 @@ import { Slots } from 'src/shared/slots';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router,private http: HttpClient) {
+  constructor(private router:Router,private tasks: TasksService) {
     
    }
-  display : Slots;
-  ngOnInit(): void {
+  display : Slots[];
+  async ngOnInit(){
+    await this.displayslots();
   }
   navigateToSuperHome(){
     this.router.navigateByUrl("/super-home");
@@ -34,18 +36,18 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl("/bank-home");
 
   }
-  test(){
-    console.log();
-  }
   async fetchDetails(){
-  await this.fetchServiceCall().then(
+  await this.tasks.getTasks().then(
      res => {
-       console.log(res);
+      this.display= res as Slots[];
+      console.log(this.display);
      }
    );
   }
 
-  fetchServiceCall(){
-    return this.http.get("http://localhost:9080/test").toPromise();
+  async displayslots(){
+    await this.fetchDetails();
   }
+
+  
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Slots } from 'src/shared/slots';
+import { TasksService } from '../services/tasks.service';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -7,9 +8,21 @@ import { Slots } from 'src/shared/slots';
 })
 export class TasksComponent implements OnInit {
   
-
-  constructor() { }
-  ngOnInit(): void {
+  
+  constructor(private tasks: TasksService) { }
+  async ngOnInit() {
+    await this.getSlots();
   }
-
+  displayslots : Slots[];
+  async  getSlots() {
+    
+    await this.tasks.getTasks().then(
+      res=>{
+        
+        this.displayslots = res as Slots[];
+        console.log(this.displayslots);
+        
+      }
+    );
+}
 }

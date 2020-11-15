@@ -1,6 +1,9 @@
 <mat-list>
 
-
-
+    <mat-list-item *ngFor="let slot of displayslots">
+        <div class="card">
+            <p>Type: {{ slot.type }}</p>
+        </div>
+    </mat-list-item>
 
 </mat-list>

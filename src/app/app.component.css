@@ -1,5 +1,5 @@
 .footer {
-    background: #d869e2;
+    background:#46a023;
     padding: 2em;
 }
 
@@ -10,10 +10,12 @@
 
 .navbar-brand {
     background: #a0d172;
+    color:white;
 }
 
 .navbar {
-    background: #d869e2;
+    background:#46a023;
+    color:white;
 }
 
 .nav-item {

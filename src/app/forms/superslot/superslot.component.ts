@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { locidcon } from 'src/shared/locateconstant';
 import { Slots } from 'src/shared/slots';
-
+import { userconst } from 'src/shared/userconstant';
 @Component({
   selector: 'app-superslot',
   templateUrl: './superslot.component.html',
@@ -36,7 +36,8 @@ export class SuperslotComponent implements OnInit {
     this.slot.longitude=0;
     this.slot.lattitude=0;
     this.slot.id=0;
-    this.slot.userid=0;
+    this.slot.userid=userconst.id;
+    console.log(userconst.id);
     console.log(this.slot);
     this.fetchSlotCall();
   }

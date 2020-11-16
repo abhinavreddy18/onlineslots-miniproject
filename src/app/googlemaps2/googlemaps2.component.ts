@@ -80,11 +80,21 @@ export class Googlemaps2Component implements OnInit {
   setmap(){
     var i:number;
    
-   var circle;
+    var circle = {};
   console.log(this.markets);
-  for(i=0;i<this.markets.length;i++)
-  var circle = L.marker([this.markets[i].lattitude,this.markets[i].longitude]).bindTooltip(this.markets[i].market_name,{ permanent: true }).addTo(mymap);
-   
+  for(i=0;i<this.markets.length;i++){
+   circle[i] = L.marker([this.markets[i].lattitude,this.markets[i].longitude]).bindTooltip(this.markets[i].market_name,{ permanent: true }).addTo(mymap);
+   circle[i].on('click', function (e) {
+    console.log('in');
+    let res = this.markets.find(locat =>{ return locat.lattitude == e.latlng.lat && locat.longitude == e.latlng.lng});
+    console.log(res);
+    locidcon.id=res.marketid;
+    console.log(locidcon);
+    //locidcon.locid = this.locat.locid;
+    this.router.navigateByUrl("/super-form");
+  }.bind(this));
   }
+  console.log(circle);
+}
   
 }

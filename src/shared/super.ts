@@ -1,5 +1,5 @@
 export class Super{
-   supermarket_id: number;
+   marketid: number;
    market_name: string;
    address: string;
    lattitude: number;

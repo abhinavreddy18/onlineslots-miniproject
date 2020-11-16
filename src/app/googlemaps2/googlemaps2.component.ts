@@ -30,7 +30,7 @@ export class Googlemaps2Component implements OnInit {
 
   async ngOnInit() {
     await this.getLocations();
-    mymap = L.map('mapid').setView([24.5, 24.5], 13);
+    mymap = L.map('mapid').setView([30, 100], 13);
     var someFeatures = [{
       "type": "Feature",
       "properties": {
@@ -72,7 +72,7 @@ export class Googlemaps2Component implements OnInit {
 
   
   marker.on('click', function onClick(){
-    locidcon.id=6;
+    
     this.router.navigateByUrl("/super-form");
   }.bind(this));
   this.setmap();

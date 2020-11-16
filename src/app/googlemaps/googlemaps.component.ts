@@ -4,8 +4,6 @@ import { location } from 'src/shared/location';
 import { LocationserviceService } from 'src/app/services/locationservice.service';
 declare const L, marker;
 import { locidcon } from 'src/shared/locateconstant';
-import { locate } from 'src/shared/locate';
-import { createIncrementalCompilerHost } from 'typescript';
 var mymap;
 
 @Component({
@@ -38,7 +36,7 @@ export class GooglemapsComponent implements OnInit {
   async ngOnInit() {
 
     await this.getLocations();
-    mymap = L.map('mapid').setView([24.5, 24.5], 13);
+    mymap = L.map('mapid').setView([30, 100], 13);
     var someFeatures = [{
       "type": "Feature",
       "properties": {

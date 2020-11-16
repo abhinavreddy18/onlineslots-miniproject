@@ -20,6 +20,7 @@ import { BankslotComponent } from './forms/bankslot/bankslot.component';
 import { HospitalComponent } from './forms/hospital/hospital.component';
 import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
 
+
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
   {

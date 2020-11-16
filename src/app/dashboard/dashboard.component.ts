@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Slots } from 'src/shared/slots';
+import { userconst } from 'src/shared/userconstant';
 import { TasksService } from '../services/tasks.service';
 @Component({
   selector: 'app-dashboard',
@@ -37,7 +38,7 @@ export class DashboardComponent implements OnInit {
 
   }
   async fetchDetails(){
-  await this.tasks.getTasks().then(
+  await this.tasks.getTasks(userconst).then(
      res => {
       this.display= res as Slots[];
       console.log(this.display);

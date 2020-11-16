@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Slots } from 'src/shared/slots';
+import { userconst } from 'src/shared/userconstant';
 import { TasksService } from '../services/tasks.service';
 @Component({
   selector: 'app-tasks',
@@ -16,7 +17,7 @@ export class TasksComponent implements OnInit {
   displayslots : Slots[];
   async  getSlots() {
     
-    await this.tasks.getTasks().then(
+    await this.tasks.getTasks(userconst).then(
       res=>{
         
         this.displayslots = res as Slots[];

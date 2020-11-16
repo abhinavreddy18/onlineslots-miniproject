@@ -36,7 +36,10 @@ import { HospitalComponent } from './forms/hospital/hospital.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskbarComponent } from './taskbar/taskbar.component';
 import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
-
+import {MatSelectModule} from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {OverlayModule} from '@angular/cdk/overlay';
+import { Googlemaps3Component } from './googlemaps3/googlemaps3.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,8 @@ import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
     HospitalComponent,
     TasksComponent,
     TaskbarComponent,
-    Googlemaps2Component
+    Googlemaps2Component,
+    Googlemaps3Component
    
   ],
   imports: [
@@ -75,7 +79,10 @@ import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

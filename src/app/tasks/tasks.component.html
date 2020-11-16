@@ -1,10 +1,13 @@
 <mat-list>
 
-    <mat-list-item *ngFor="let slot of display">
-        <p>{{ slot.name }}</p>
-        <br>
-        <p>{{ slot.type }}</p>
-    </mat-list-item>
-
+    <div class="card" *ngFor="let slot of displayslots">
+        <div class="card-header align-self-center">
+            <p>Supermarket Name: {{ slot.name }}</p>
+        </div>
+        <div class="card-body align-self-center">
+            <p>Type: {{ slot.type }}</p>
+            <br>
+        </div>
+    </div>
 
 </mat-list>

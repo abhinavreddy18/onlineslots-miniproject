@@ -7,7 +7,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/general/home/home.component';
@@ -34,7 +35,11 @@ import { BankslotComponent } from './forms/bankslot/bankslot.component';
 import { HospitalComponent } from './forms/hospital/hospital.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskbarComponent } from './taskbar/taskbar.component';
-
+import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
+import {MatSelectModule} from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {OverlayModule} from '@angular/cdk/overlay';
+import { Googlemaps3Component } from './googlemaps3/googlemaps3.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +65,9 @@ import { TaskbarComponent } from './taskbar/taskbar.component';
     BankslotComponent,
     HospitalComponent,
     TasksComponent,
-    TaskbarComponent
+    TaskbarComponent,
+    Googlemaps2Component,
+    Googlemaps3Component
    
   ],
   imports: [
@@ -71,7 +78,11 @@ import { TaskbarComponent } from './taskbar/taskbar.component';
     MatListModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatGridListModule
+    HttpClientModule,
+    MatGridListModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]

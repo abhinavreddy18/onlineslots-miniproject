@@ -1,23 +1,16 @@
-<form [formGroup]="form" (ngSubmit)="submitForm()">
-    <label for="mall_name">Select Supermarket:</label>
-    <select name="mall_name" id="mall_name" [formControlName]="'name'">
-    <option value="super-1">mall-1</option>
-    <option value="super-2">mall-2</option>
-  </select>
-    <br>
+<form [formGroup]="form" (ngSubmit)="submitForm() ">
+
     <label for="time">Select shopping time(in mins):</label>
     <select name="time" id="time" [formControlName]="'time'">
-    <option value="10mins">10</option>
-    <option value="20mins">20</option>
-    <option value="30mins">30</option>
-    <option value="40mins">40</option>
-    <option value="50mins">50</option>
-    <option value="60mins">60(1 hr)</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="40">40</option>
+    <option value="50">50</option>
+    <option value="60">60(1 hr)</option>
   </select>
     <br>
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" [formControlName]="'email'">
-    <br>
+
     <label>Choose type:</label><br>
     <select name="mall_name" id="mall_name" [formControlName]="'type'">
         <option value="fasttrack">fasttrack</option>

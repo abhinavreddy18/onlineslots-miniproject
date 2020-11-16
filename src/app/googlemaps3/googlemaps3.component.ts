@@ -16,7 +16,7 @@ export class Googlemaps3Component implements OnInit {
   
   async ngOnInit() {
     await this.displayslots();
-    mymap = L.map('mapid').setView([30, 100], 13);
+    mymap = L.map('mapid').setView([30, 100], 18);
     var someFeatures = [{
       "type": "Feature",
       "properties": {
@@ -65,7 +65,7 @@ export class Googlemaps3Component implements OnInit {
   }
 
   async fetchDetails(){
-    await this.tasks.getTasks(userconst).then(
+    await this.tasks.getTasks().then(
        res => {
         this.display= res as Slots[];
         console.log(this.display);

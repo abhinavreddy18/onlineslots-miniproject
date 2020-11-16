@@ -6,6 +6,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
@@ -82,7 +83,7 @@ import { Googlemaps3Component } from './googlemaps3/googlemaps3.component';
     MatGridListModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    OverlayModule
+    OverlayModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

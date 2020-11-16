@@ -9,7 +9,8 @@ import { userconst } from 'src/shared/userconstant';
 export class TasksService {
   slot : Slots;
   constructor(private http: HttpClient) { }
-  getTasks(user :User){
-    return this.http.post("http://localhost:9080/slotsdisplay",user).toPromise();
+  getTasks(){
+    console.log(userconst);
+    return this.http.post("http://localhost:9080/slotsdisplay",userconst).toPromise();
   }
 }

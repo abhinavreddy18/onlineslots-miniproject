@@ -69,43 +69,17 @@ var GooglemapsComponent = /** @class */ (function () {
     };
     GooglemapsComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var someFeatures, marker;
+            var marker;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.getLocations()];
                     case 1:
                         _a.sent();
-                        mymap = L.map('mapid').setView([30, 100], 13);
-                        someFeatures = [{
-                                "type": "Feature",
-                                "properties": {
-                                    "name": "Coors Field",
-                                    "show_on_map": true
-                                },
-                                "geometry": {
-                                    "type": "Point",
-                                    "coordinates": [-104.99404, 39.75621]
-                                }
-                            }, {
-                                "type": "Feature",
-                                "properties": {
-                                    "name": "Busch Field",
-                                    "amenity": "Baseball Stadium",
-                                    "show_on_map": false
-                                },
-                                "geometry": {
-                                    "type": "polygon",
-                                    "coordinates": [51.505, -0.10]
-                                }
-                            }];
-                        L.geoJSON(someFeatures, {
-                            filter: function (feature, layer) {
-                                return feature.properties.show_on_map;
-                            }
-                        }).addTo(mymap);
+                        mymap = L.map('mapid').setView([30, 100], 16);
                         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         }).addTo(mymap);
+                        console.log('my map');
                         L.marker([51.5, -0.09]).addTo(mymap)
                             .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
                         marker = L.marker([51.4, -0.09]).addTo(mymap).bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
@@ -128,11 +102,12 @@ var GooglemapsComponent = /** @class */ (function () {
             circle[i].on('click', function (e) {
                 console.log('in');
                 var res = this.locs.find(function (locat) { return locat.lattitude == e.latlng.lat && locat.longitude == e.latlng.lng; });
-                console.log(res);
                 locateconstant_1.locidcon.locid = res.locid;
-                console.log(locateconstant_1.locidcon);
+                console.log(e.latlng.lat);
+                console.log(e.latlng.lng);
                 //locidcon.locid = this.locat.locid;
-                this.router.navigateByUrl("/map-2");
+                //this.router.navigateByUrl("/map-2");
+                this.router.navigateByUrl("map-2");
             }.bind(this));
         }
         console.log(circle);

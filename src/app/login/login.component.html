@@ -9,7 +9,7 @@
             </div>
             <br>
             <label>password</label>
-            <input type="text" [formControlName]="'password'">
+            <input type="password" [formControlName]="'password'">
             <div *ngIf="form.get('password').hasError('required')">
                 Username is a required field
             </div>

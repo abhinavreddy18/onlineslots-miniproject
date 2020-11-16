@@ -6,8 +6,9 @@ export class Slots {
     userid: number;
     locid:number;
     type: string;
-    time: string;
+    date: Date;
+    time: String;
     otp: number;
     location: string;
-
+    duaration: number;
 }

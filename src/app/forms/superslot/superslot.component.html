@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="submitForm() ">
 
     <label for="time">Select shopping time(in mins):</label>
-    <select name="time" id="time" [formControlName]="'time'">
+    <select name="time" id="time" [formControlName]="'duration'">
     <option value="10">10</option>
     <option value="20">20</option>
     <option value="30">30</option>
@@ -17,5 +17,7 @@
         <option value="normal">normal</option>
       </select>
     <br>
+    <input type="date" id="input" class="form-control" [formControlName]="'date'" Input />
+    <input type="time" id="input" class="form-control" [formControlName]="'time'" Input />
     <button class="btn  btn-primary">Submit</button>
 </form>

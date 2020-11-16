@@ -17,8 +17,9 @@ export class SuperslotComponent implements OnInit {
     this.form = this.fb.group({
       name: ['',Validators.required],      
       time: ['',Validators.required],
-      email: ['',Validators.required],
-      type:['',Validators.required]
+      duration: ['',Validators.required],
+      type:['',Validators.required],
+      date:['',Validators.required]
     });
   }
   s : SlotSuper;
@@ -28,7 +29,10 @@ export class SuperslotComponent implements OnInit {
     console.log(locidcon);
   }
   submitForm() {
-    console.log(this.form.value.name);
+    this.slot= new Slots();
+    console.log(this.form.value.time);
+    this.slot.time=this.form.value.time;
+    console.log(this.slot.time);
      this.slot= new Slots();
     this.slot.locid=locidcon.id;
     this.slot.type=this.form.value.type;
@@ -37,15 +41,15 @@ export class SuperslotComponent implements OnInit {
     this.slot.lattitude=0;
     this.slot.id=0;
     this.slot.userid=userconst.id;
-    console.log(userconst.id);
-    console.log(this.slot);
+    this.slot.date=this.form.value.date;
+    this.slot.time=this.form.value.time;
     this.fetchSlotCall();
   }
 
   async fetchDetails(){
     await this.fetchSlotCall().then(
        res => {
-         console.log(res);
+         //console.log(res);
        }
      );
     }

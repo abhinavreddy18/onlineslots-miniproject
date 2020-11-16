@@ -42,23 +42,50 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.Googlemaps2Component = void 0;
+exports.SuperslotComponent = void 0;
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var locateconstant_1 = require("src/shared/locateconstant");
-var mymap;
-var Googlemaps2Component = /** @class */ (function () {
-    function Googlemaps2Component(router, locationservice) {
-        this.router = router;
-        this.locationservice = locationservice;
+var slots_1 = require("src/shared/slots");
+var userconstant_1 = require("src/shared/userconstant");
+var SuperslotComponent = /** @class */ (function () {
+    function SuperslotComponent(fb, http) {
+        this.fb = fb;
+        this.http = http;
+        this.form = this.fb.group({
+            name: ['', forms_1.Validators.required],
+            time: ['', forms_1.Validators.required],
+            duration: ['', forms_1.Validators.required],
+            type: ['', forms_1.Validators.required],
+            date: ['', forms_1.Validators.required]
+        });
     }
-    Googlemaps2Component.prototype.getLocations = function () {
+    SuperslotComponent.prototype.ngOnInit = function () {
+        console.log(locateconstant_1.locidcon);
+    };
+    SuperslotComponent.prototype.submitForm = function () {
+        this.slot = new slots_1.Slots();
+        console.log(this.form.value.time);
+        this.slot.time = this.form.value.time;
+        console.log(this.slot.time);
+        this.slot = new slots_1.Slots();
+        this.slot.locid = locateconstant_1.locidcon.id;
+        this.slot.type = this.form.value.type;
+        this.slot.otp = 0;
+        this.slot.longitude = 0;
+        this.slot.lattitude = 0;
+        this.slot.id = 0;
+        this.slot.userid = userconstant_1.userconst.id;
+        this.slot.date = this.form.value.date;
+        this.slot.time = this.form.value.time;
+        this.fetchSlotCall();
+    };
+    SuperslotComponent.prototype.fetchDetails = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.locationservice.getlocations().then(function (res) {
-                            _this.markets = res;
-                            console.log(_this.markets);
+                    case 0: return [4 /*yield*/, this.fetchSlotCall().then(function (res) {
+                            //console.log(res);
                         })];
                     case 1:
                         _a.sent();
@@ -67,55 +94,16 @@ var Googlemaps2Component = /** @class */ (function () {
             });
         });
     };
-    Googlemaps2Component.prototype.ngOnInit = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var marker;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getLocations()];
-                    case 1:
-                        _a.sent();
-                        mymap = L.map('mapid').setView([30, 100], 30);
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        }).addTo(mymap);
-                        L.marker([51.5, -0.09]).addTo(mymap)
-                            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
-                        marker = L.marker([51.4, -0.09]).addTo(mymap).bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
-                        marker.on('click', function onClick() {
-                            this.router.navigateByUrl("/super-form");
-                        }.bind(this));
-                        this.setmap();
-                        return [2 /*return*/];
-                }
-            });
-        });
+    SuperslotComponent.prototype.fetchSlotCall = function () {
+        return this.http.post("http://localhost:9080/superslot", this.slot).toPromise();
     };
-    Googlemaps2Component.prototype.setmap = function () {
-        var i;
-        var circle = {};
-        console.log(this.markets);
-        for (i = 0; i < this.markets.length; i++) {
-            circle[i] = L.marker([this.markets[i].lattitude, this.markets[i].longitude]).bindTooltip(this.markets[i].market_name, { permanent: true }).addTo(mymap);
-            circle[i].on('click', function (e) {
-                console.log('in');
-                var res = this.markets.find(function (locat) { return locat.lattitude == e.latlng.lat && locat.longitude == e.latlng.lng; });
-                console.log(res);
-                locateconstant_1.locidcon.id = res.marketid;
-                console.log(locateconstant_1.locidcon);
-                //locidcon.locid = this.locat.locid;
-                this.router.navigateByUrl("/super-form");
-            }.bind(this));
-        }
-        console.log(circle);
-    };
-    Googlemaps2Component = __decorate([
+    SuperslotComponent = __decorate([
         core_1.Component({
-            selector: 'app-googlemaps2',
-            templateUrl: './googlemaps2.component.html',
-            styleUrls: ['./googlemaps2.component.css']
+            selector: 'app-superslot',
+            templateUrl: './superslot.component.html',
+            styleUrls: ['./superslot.component.css']
         })
-    ], Googlemaps2Component);
-    return Googlemaps2Component;
+    ], SuperslotComponent);
+    return SuperslotComponent;
 }());
-exports.Googlemaps2Component = Googlemaps2Component;
+exports.SuperslotComponent = SuperslotComponent;

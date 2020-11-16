@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
 
   }
   async fetchDetails(){
-  await this.tasks.getTasks(userconst).then(
+  await this.tasks.getTasks().then(
      res => {
       this.display= res as Slots[];
       console.log(this.display);

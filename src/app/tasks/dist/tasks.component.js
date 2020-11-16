@@ -42,72 +42,36 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.Googlemaps3Component = void 0;
+exports.TasksComponent = void 0;
 var core_1 = require("@angular/core");
-var mymap;
-var Googlemaps3Component = /** @class */ (function () {
-    function Googlemaps3Component(tasks) {
+var userconstant_1 = require("src/shared/userconstant");
+var TasksComponent = /** @class */ (function () {
+    function TasksComponent(tasks) {
         this.tasks = tasks;
     }
-    Googlemaps3Component.prototype.ngOnInit = function () {
+    TasksComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var someFeatures, marker;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.displayslots()];
+                    case 0: return [4 /*yield*/, this.getSlots()];
                     case 1:
                         _a.sent();
-                        mymap = L.map('mapid').setView([30, 100], 18);
-                        someFeatures = [{
-                                "type": "Feature",
-                                "properties": {
-                                    "name": "Coors Field",
-                                    "show_on_map": true
-                                },
-                                "geometry": {
-                                    "type": "Point",
-                                    "coordinates": [-104.99404, 39.75621]
-                                }
-                            }, {
-                                "type": "Feature",
-                                "properties": {
-                                    "name": "Busch Field",
-                                    "amenity": "Baseball Stadium",
-                                    "show_on_map": false
-                                },
-                                "geometry": {
-                                    "type": "polygon",
-                                    "coordinates": [51.505, -0.10]
-                                }
-                            }];
-                        L.geoJSON(someFeatures, {
-                            filter: function (feature, layer) {
-                                return feature.properties.show_on_map;
-                            }
-                        }).addTo(mymap);
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                        }).addTo(mymap);
-                        L.marker([51.5, -0.09]).addTo(mymap)
-                            .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
-                        marker = L.marker([51.4, -0.09]).addTo(mymap).bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
-                        marker.on('click', function onClick() {
-                        }.bind(this));
-                        this.setmap();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    Googlemaps3Component.prototype.fetchDetails = function () {
+    TasksComponent.prototype.getSlots = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.tasks.getTasks().then(function (res) {
-                            _this.display = res;
-                            console.log(_this.display);
-                        })];
+                    case 0:
+                        console.log(userconstant_1.userconst);
+                        return [4 /*yield*/, this.tasks.getTasks(userconstant_1.userconst).then(function (res) {
+                                _this.displayslots = res;
+                                console.log(_this.displayslots);
+                            })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -115,33 +79,13 @@ var Googlemaps3Component = /** @class */ (function () {
             });
         });
     };
-    Googlemaps3Component.prototype.displayslots = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetchDetails()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    Googlemaps3Component.prototype.setmap = function () {
-        var i;
-        var circle = {};
-        for (i = 0; i < this.display.length; i++) {
-            circle[i] = L.marker([this.display[i].lattitude, this.display[i].longitude]).bindTooltip(this.display[i].name, { permanent: true }).addTo(mymap);
-            //locidcon.locid = this.locat.locid;
-        }
-    };
-    Googlemaps3Component = __decorate([
+    TasksComponent = __decorate([
         core_1.Component({
-            selector: 'app-googlemaps3',
-            templateUrl: './googlemaps3.component.html',
-            styleUrls: ['./googlemaps3.component.css']
+            selector: 'app-tasks',
+            templateUrl: './tasks.component.html',
+            styleUrls: ['./tasks.component.css']
         })
-    ], Googlemaps3Component);
-    return Googlemaps3Component;
+    ], TasksComponent);
+    return TasksComponent;
 }());
-exports.Googlemaps3Component = Googlemaps3Component;
+exports.TasksComponent = TasksComponent;

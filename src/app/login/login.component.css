@@ -1,1 +1,9 @@
 /*#test*/
+
+.center {
+    align-self: center;
+}
+
+.card-header {
+    background-color: #88ff4d;
+}

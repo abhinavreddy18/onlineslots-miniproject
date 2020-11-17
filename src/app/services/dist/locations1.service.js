@@ -42,85 +42,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.SuperslotComponent = void 0;
+exports.Locations1Service = void 0;
 var core_1 = require("@angular/core");
-var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/common/http");
 var locateconstant_1 = require("src/shared/locateconstant");
-var slots_1 = require("src/shared/slots");
-var userconstant_1 = require("src/shared/userconstant");
-var slotsconstant_1 = require("src/shared/slotsconstant");
-var SuperslotComponent = /** @class */ (function () {
-    function SuperslotComponent(fb, http, router) {
-        this.fb = fb;
+var locate_1 = require("src/shared/locate");
+var Locations1Service = /** @class */ (function () {
+    function Locations1Service(http) {
         this.http = http;
-        this.router = router;
-        this.form = this.fb.group({
-            name: ['', forms_1.Validators.required],
-            time: ['', forms_1.Validators.required],
-            duration: ['', forms_1.Validators.required],
-            type: ['', forms_1.Validators.required],
-            date: ['', forms_1.Validators.required]
-        });
     }
-    SuperslotComponent.prototype.ngOnInit = function () {
-        console.log(locateconstant_1.locidcon);
-    };
-    SuperslotComponent.prototype.submitForm = function () {
+    Locations1Service.prototype.getlocations = function () {
         return __awaiter(this, void 0, void 0, function () {
+            var loc, params;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        this.slot = new slots_1.Slots();
-                        console.log(this.form.value.time);
-                        this.slot.time = this.form.value.time;
-                        console.log(this.slot.time);
-                        this.slot = new slots_1.Slots();
-                        this.slot.locid = locateconstant_1.locidcon.id;
-                        this.slot.type = this.form.value.type;
-                        this.slot.otp = 0;
-                        this.slot.longitude = 0;
-                        this.slot.lattitude = 0;
-                        this.slot.id = 0;
-                        this.slot.userid = userconstant_1.userconst.id;
-                        this.slot.date = this.form.value.date;
-                        this.slot.time = this.form.value.time;
-                        return [4 /*yield*/, this.fetchDetails()];
-                    case 1:
-                        _a.sent();
-                        console.log(this.s1);
-                        //this.router.navigateByUrl("receipt");
-                        this.router.navigateByUrl("dashboard");
-                        return [2 /*return*/];
-                }
+                loc = new locate_1.locate();
+                loc.locid = 23;
+                params = new http_1.HttpParams();
+                console.log(locateconstant_1.locidcon);
+                return [2 /*return*/, this.http.post("http://localhost:9080/superlocation", locateconstant_1.locidcon).toPromise()];
             });
         });
     };
-    SuperslotComponent.prototype.fetchDetails = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetchSlotCall().then(function (res) {
-                            _this.s1 = res;
-                            slotsconstant_1.slotconstant.id = _this.s1.id;
-                        })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    SuperslotComponent.prototype.fetchSlotCall = function () {
-        return this.http.post("http://localhost:9080/superslot", this.slot).toPromise();
-    };
-    SuperslotComponent = __decorate([
-        core_1.Component({
-            selector: 'app-superslot',
-            templateUrl: './superslot.component.html',
-            styleUrls: ['./superslot.component.css']
+    Locations1Service = __decorate([
+        core_1.Injectable({
+            providedIn: 'root'
         })
-    ], SuperslotComponent);
-    return SuperslotComponent;
+    ], Locations1Service);
+    return Locations1Service;
 }());
-exports.SuperslotComponent = SuperslotComponent;
+exports.Locations1Service = Locations1Service;

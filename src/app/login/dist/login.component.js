@@ -42,85 +42,84 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.SuperslotComponent = void 0;
+exports.LoginComponent = void 0;
 var core_1 = require("@angular/core");
-var forms_1 = require("@angular/forms");
-var locateconstant_1 = require("src/shared/locateconstant");
-var slots_1 = require("src/shared/slots");
+var user_1 = require("src/shared/user");
 var userconstant_1 = require("src/shared/userconstant");
-var slotsconstant_1 = require("src/shared/slotsconstant");
-var SuperslotComponent = /** @class */ (function () {
-    function SuperslotComponent(fb, http, router) {
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(router, fb, http) {
+        this.router = router;
         this.fb = fb;
         this.http = http;
-        this.router = router;
         this.form = this.fb.group({
-            name: ['', forms_1.Validators.required],
-            time: ['', forms_1.Validators.required],
-            duration: ['', forms_1.Validators.required],
-            type: ['', forms_1.Validators.required],
-            date: ['', forms_1.Validators.required]
+            username: ['',],
+            password: ['',]
         });
     }
-    SuperslotComponent.prototype.ngOnInit = function () {
-        console.log(locateconstant_1.locidcon);
+    LoginComponent.prototype.ngOnInit = function () {
+        this.user = new user_1.User();
     };
-    SuperslotComponent.prototype.submitForm = function () {
+    LoginComponent.prototype.fetchUser = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        this.slot = new slots_1.Slots();
-                        console.log(this.form.value.time);
-                        this.slot.time = this.form.value.time;
-                        console.log(this.slot.time);
-                        this.slot = new slots_1.Slots();
-                        this.slot.locid = locateconstant_1.locidcon.id;
-                        this.slot.type = this.form.value.type;
-                        this.slot.otp = 0;
-                        this.slot.longitude = 0;
-                        this.slot.lattitude = 0;
-                        this.slot.id = 0;
-                        this.slot.userid = userconstant_1.userconst.id;
-                        this.slot.date = this.form.value.date;
-                        this.slot.time = this.form.value.time;
-                        return [4 /*yield*/, this.fetchDetails()];
-                    case 1:
-                        _a.sent();
-                        console.log(this.s1);
-                        //this.router.navigateByUrl("receipt");
-                        this.router.navigateByUrl("dashboard");
-                        return [2 /*return*/];
-                }
+                return [2 /*return*/, this.http.post("http://localhost:9080/login", this.user).toPromise()];
             });
         });
     };
-    SuperslotComponent.prototype.fetchDetails = function () {
+    LoginComponent.prototype.navigateToDashboard = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetchSlotCall().then(function (res) {
-                            _this.s1 = res;
-                            slotsconstant_1.slotconstant.id = _this.s1.id;
-                        })];
+                    case 0:
+                        console.log(this.form.value.username);
+                        this.user.username = this.form.value.username;
+                        this.user.password = this.form.value.password;
+                        userconstant_1.userconst.username = this.form.value.username;
+                        userconstant_1.userconst.password = this.form.value.password;
+                        this.user.valid = 0;
+                        return [4 /*yield*/, this.fetchUser().then(function (res) {
+                                _this.user = res;
+                            })];
                     case 1:
                         _a.sent();
+                        userconstant_1.userconst.id = this.user.id;
+                        console.log(this.user);
+                        console.log(userconstant_1.userconst);
+                        if (this.user.valid = 1) {
+                            this.router.navigateByUrl("/dashboard");
+                        }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    SuperslotComponent.prototype.fetchSlotCall = function () {
-        return this.http.post("http://localhost:9080/superslot", this.slot).toPromise();
+    LoginComponent.prototype.navigatetosigup = function () {
+        this.router.navigateByUrl("/signup");
     };
-    SuperslotComponent = __decorate([
+    LoginComponent.prototype.submitForm = function () {
+        if (this.form.valid) {
+            this.navigateToDashboard();
+        }
+        else {
+            console.log('There is a problem with the form');
+        }
+    };
+    LoginComponent.prototype.validatorPassword = function (fc) {
+        var value = fc.value;
+        var isInvalid = 'password' === value.trim().toLowerCase();
+        return isInvalid ? { passwordError: 'Password is not a strong password' } : null;
+    };
+    __decorate([
+        core_1.ViewChild('closebutton')
+    ], LoginComponent.prototype, "closebutton");
+    LoginComponent = __decorate([
         core_1.Component({
-            selector: 'app-superslot',
-            templateUrl: './superslot.component.html',
-            styleUrls: ['./superslot.component.css']
+            selector: 'app-login',
+            templateUrl: './login.component.html',
+            styleUrls: ['./login.component.css']
         })
-    ], SuperslotComponent);
-    return SuperslotComponent;
+    ], LoginComponent);
+    return LoginComponent;
 }());
-exports.SuperslotComponent = SuperslotComponent;
+exports.LoginComponent = LoginComponent;

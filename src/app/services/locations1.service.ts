@@ -10,7 +10,7 @@ export class Locations1Service {
   
  
   constructor(private http: HttpClient) { }
-  getlocations(){
+  async getlocations(){
     let loc=new locate();
     loc.locid=23;
     const params = new HttpParams();

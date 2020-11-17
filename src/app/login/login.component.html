@@ -1,4 +1,7 @@
 <div class="card">
+    <div class="card-header">
+        <h1 style="text-align: center;color:white">Login To Book Slot</h1>
+    </div>
     <div class="card-body align-self-center">
         <h2 class="card-title text-primary ">Login</h2>
         <form [formGroup]="form" (ngSubmit)="submitForm()">
@@ -15,7 +18,7 @@
             </div>
             <br>
             <!-- Button trigger modal -->
-            <button type="submit" [disabled]="!form.valid">Submit</button>
+            <button mat-button style="background-color: #00FF00;" type="submit" [disabled]="!form.valid">Submit</button>
 
         </form>
 
@@ -24,27 +27,9 @@
 
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">SCOUPON</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-            </div>
-            <div class="modal-body">
-                welcome to scoupon
-            </div>
-            <div class="modal-footer">
-                <button type="button" #closebutton class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="closeModal" (click)="navigateToDashboard()" class="btn btn-primary">Enter</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div>
-    <button mat-button (click)="navigatetosigup()">signup</button>
+<div class="row">
+    <div class="col-md-12 align-self-center">
+        <button class="center" style="text-align: center;" mat-button (click)="navigatetosigup()">signup</button>
+    </div>
 </div>

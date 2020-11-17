@@ -82,7 +82,7 @@ export class Googlemaps3Component implements OnInit {
      
       var circle = {};
       for(i=0;i<this.display.length;i++){
-        circle[i] = L.marker([this.display[i].lattitude,this.display[i].longitude]).bindTooltip(this.display[i].name,{ permanent: true }).addTo(mymap);
+        circle[i] = L.marker([this.display[i].lattitude,this.display[i].longitude]).bindTooltip(this.display[i].date,{ permanent: true }).addTo(mymap);
          //locidcon.locid = this.locat.locid;
          
     }

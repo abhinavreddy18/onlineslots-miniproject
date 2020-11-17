@@ -41,6 +41,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { Googlemaps3Component } from './googlemaps3/googlemaps3.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { Googlemaps3Component } from './googlemaps3/googlemaps3.component';
     TasksComponent,
     TaskbarComponent,
     Googlemaps2Component,
-    Googlemaps3Component
+    Googlemaps3Component,
+    ReceiptComponent
    
   ],
   imports: [

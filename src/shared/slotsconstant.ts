@@ -1,2 +1,2 @@
 import { Slots } from './slots';
-export var slotconstant = new Slots();
+export let slotconstant = new Slots();

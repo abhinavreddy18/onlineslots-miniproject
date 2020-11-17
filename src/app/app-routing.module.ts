@@ -19,7 +19,7 @@ import { SuperslotComponent } from './forms/superslot/superslot.component';
 import { BankslotComponent } from './forms/bankslot/bankslot.component';
 import { HospitalComponent } from './forms/hospital/hospital.component';
 import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
-
+import { ReceiptComponent } from './receipt/receipt.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
@@ -78,6 +78,9 @@ const routes: Routes = [
   },
   {
     path:'map-2',component: Googlemaps2Component,
+  },
+  {
+    path:'receipt',component: ReceiptComponent,
   },
   {
     path: 'bootstrap-prototype',

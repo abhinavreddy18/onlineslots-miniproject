@@ -5,6 +5,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { locidcon } from 'src/shared/locateconstant';
 import { Slots } from 'src/shared/slots';
 import { userconst } from 'src/shared/userconstant';
+import { slotconstant } from 'src/shared/slotsconstant';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-superslot',
   templateUrl: './superslot.component.html',
@@ -13,7 +15,7 @@ import { userconst } from 'src/shared/userconstant';
 export class SuperslotComponent implements OnInit {
 
   slot : Slots;
-  constructor(private readonly fb: FormBuilder,private http: HttpClient) { 
+  constructor(private readonly fb: FormBuilder,private http: HttpClient, private router: Router) { 
     this.form = this.fb.group({
       name: ['',Validators.required],      
       time: ['',Validators.required],
@@ -23,12 +25,12 @@ export class SuperslotComponent implements OnInit {
     });
   }
   s : SlotSuper;
-  
+  s1:Slots;
   form: FormGroup;
   ngOnInit(): void {
     console.log(locidcon);
   }
-  submitForm() {
+  async submitForm() {
     this.slot= new Slots();
     console.log(this.form.value.time);
     this.slot.time=this.form.value.time;
@@ -43,13 +45,20 @@ export class SuperslotComponent implements OnInit {
     this.slot.userid=userconst.id;
     this.slot.date=this.form.value.date;
     this.slot.time=this.form.value.time;
-    this.fetchSlotCall();
+    await this.fetchDetails();
+    console.log(this.s1);
+    //this.router.navigateByUrl("receipt");
+    this.router.navigateByUrl("dashboard");
   }
 
   async fetchDetails(){
+    
     await this.fetchSlotCall().then(
        res => {
-         //console.log(res);
+         
+         this.s1=res as Slots;
+         slotconstant.id=this.s1.id;
+        
        }
      );
     }

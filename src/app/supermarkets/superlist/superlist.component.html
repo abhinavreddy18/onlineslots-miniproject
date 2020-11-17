@@ -14,21 +14,31 @@
     </div>
 </form> -->
 <!-- <mat-form-field appearance="fill"> -->
-<form [formGroup]="form" (ngSubmit)="submitForm()">
-    <mat-label>Choose an option</mat-label>
-    <select id="orders" [formControlName]="'location'" (change)="updateName()">
+<div class="card align-self-center">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="card-header align-self-center">
+            <h2 style="text-align: center;">Select Your Supermarket to Book Slot</h2>
+        </div>
+        <div class="card-body align-self-center">
+            <mat-label style="text-align: center;">Choose an Location:</mat-label>
+            <br>
+            <select id="orders" [formControlName]="'location'" (change)="updateName()">
         <option *ngFor="let order of locs; let i = index" [value]="locs[i].locid" >
           {{locs[i].name}}
         </option>
       </select>
-    <br>
-    <mat-label>Choose an market</mat-label>
-    <select id="orders" [formControlName]="'id'">
+            <br>
+            <mat-label>Choose an market:</mat-label>
+            <br>
+            <select id="orders" [formControlName]="'id'">
     <option *ngFor="let order of markets; let i = index" [value]="markets[i].marketid" >
         {{markets[i].market_name}}
       </option>
    </select>
-    <br>
-    <button type="submit" class="btn  btn-primary">Submit</button>
-</form>
+            <br>
+            <button type="submit" class="btn  btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>
 <!-- </mat-form-field> -->

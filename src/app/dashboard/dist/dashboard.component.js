@@ -52,12 +52,7 @@ var DashboardComponent = /** @class */ (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.displayslots()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                return [2 /*return*/];
             });
         });
     };
@@ -72,34 +67,6 @@ var DashboardComponent = /** @class */ (function () {
     };
     DashboardComponent.prototype.navigateToBankHome = function () {
         this.router.navigateByUrl("/bank-home");
-    };
-    DashboardComponent.prototype.fetchDetails = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.tasks.getTasks().then(function (res) {
-                            _this.display = res;
-                            console.log(_this.display);
-                        })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    DashboardComponent.prototype.displayslots = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetchDetails()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
     };
     DashboardComponent = __decorate([
         core_1.Component({

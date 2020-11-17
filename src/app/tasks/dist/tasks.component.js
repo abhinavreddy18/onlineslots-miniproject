@@ -68,7 +68,7 @@ var TasksComponent = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         console.log(userconstant_1.userconst);
-                        return [4 /*yield*/, this.tasks.getTasks(userconstant_1.userconst).then(function (res) {
+                        return [4 /*yield*/, this.tasks.getTasks().then(function (res) {
                                 _this.displayslots = res;
                                 console.log(_this.displayslots);
                             })];

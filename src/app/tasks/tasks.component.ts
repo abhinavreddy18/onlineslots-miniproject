@@ -17,7 +17,7 @@ export class TasksComponent implements OnInit {
   displayslots : Slots[];
   async  getSlots() {
     console.log(userconst);
-    await this.tasks.getTasks(userconst).then(
+    await this.tasks.getTasks().then(
       res=>{
         
         this.displayslots = res as Slots[];

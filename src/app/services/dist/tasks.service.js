@@ -15,7 +15,8 @@ var TasksService = /** @class */ (function () {
     }
     TasksService.prototype.getTasks = function () {
         console.log(userconstant_1.userconst);
-        return this.http.post("http://localhost:9080/slotsdisplay", userconstant_1.userconst).toPromise();
+        console.log("send");
+        return this.http.post("http://localhost:9080/slots", userconstant_1.userconst).toPromise();
     };
     TasksService = __decorate([
         core_1.Injectable({

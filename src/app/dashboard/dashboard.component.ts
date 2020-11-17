@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
    }
   display : Slots[];
   async ngOnInit(){
-    await this.displayslots();
+    
   }
   navigateToSuperHome(){
     this.router.navigateByUrl("/super-home");
@@ -37,18 +37,9 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl("/bank-home");
 
   }
-  async fetchDetails(){
-  await this.tasks.getTasks().then(
-     res => {
-      this.display= res as Slots[];
-      console.log(this.display);
-     }
-   );
-  }
+  
 
-  async displayslots(){
-    await this.fetchDetails();
-  }
+  
 
   
 }

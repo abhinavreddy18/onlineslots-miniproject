@@ -11,6 +11,7 @@ export class TasksService {
   constructor(private http: HttpClient) { }
   getTasks(){
     console.log(userconst);
-    return this.http.post("http://localhost:9080/slotsdisplay",userconst).toPromise();
+    console.log("send");
+    return this.http.post("http://localhost:9080/slots",userconst).toPromise();
   }
 }

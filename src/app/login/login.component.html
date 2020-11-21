@@ -5,20 +5,20 @@
     <div class="card-body align-self-center">
         <h2 class="card-title text-primary ">Login</h2>
         <form [formGroup]="form" (ngSubmit)="submitForm()">
-            <label>username</label>
+            <label>Username</label>
             <input type="text" [formControlName]="'username'">
             <div *ngIf="form.get('username').hasError('required')">
                 Username is a required field
             </div>
             <br>
-            <label>password</label>
+            <label>Password</label>
             <input type="password" [formControlName]="'password'">
             <div *ngIf="form.get('password').hasError('required')">
                 Username is a required field
             </div>
             <br>
             <!-- Button trigger modal -->
-            <button mat-button style="background-color: #00FF00;" type="submit" [disabled]="!form.valid">Submit</button>
+            <button mat-button class="center" style="background-color: #00FF00;" type="submit" [disabled]="!form.valid">Submit</button>
 
         </form>
 
@@ -29,7 +29,14 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12 align-self-center">
-        <button class="center" style="text-align: center;" mat-button (click)="navigatetosigup()">signup</button>
+    <div class="col-md-12 align-self-center card">
+        <div class="card-header">
+            <h3>Not a Registered User?</h3>
+            <br>
+            <h4>Sign Up</h4>
+        </div>
+        <div class="card-body align-self-center">
+            <button class="center" style="background-color: #00FF00;align-self: center;" mat-button (click)="navigatetosigup()">signup</button>
+        </div>
     </div>
 </div>

@@ -20,7 +20,7 @@
             <h2 style="text-align: center;">Select Your Supermarket to Book Slot</h2>
         </div>
         <div class="card-body align-self-center">
-            <mat-label style="text-align: center;">Choose an Location:</mat-label>
+            <mat-label style="text-align: center;">Choose a Location:</mat-label>
             <br>
             <select id="orders" [formControlName]="'location'" (change)="updateName()">
         <option *ngFor="let order of locs; let i = index" [value]="locs[i].locid" >
@@ -28,7 +28,7 @@
         </option>
       </select>
             <br>
-            <mat-label>Choose an market:</mat-label>
+            <mat-label>Choose a market:</mat-label>
             <br>
             <select id="orders" [formControlName]="'id'">
     <option *ngFor="let order of markets; let i = index" [value]="markets[i].marketid" >

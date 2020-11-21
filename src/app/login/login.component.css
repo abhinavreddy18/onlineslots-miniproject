@@ -6,4 +6,14 @@
 
 .card-header {
     background-color: #88ff4d;
+    text-align: center;
+    color: white;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.button {
+    background-color: #00FF00;
 }

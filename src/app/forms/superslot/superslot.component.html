@@ -2,10 +2,11 @@
     <div class="card-header">
         <h1 style="text-align: center;">Fill in details to book Slot</h1>
     </div>
-    <div class="card-body">
+    <div class="card-body align-self-center">
         <form [formGroup]="form" (ngSubmit)="submitForm() ">
 
             <label for="time">Select shopping time(in mins):  </label>
+            <br>
             <select name="time" id="time" [formControlName]="'duration'">
     <option value="10">10</option>
     <option value="20">20</option>
@@ -17,12 +18,17 @@
             <br>
 
             <label>Choose type:  </label>
+            <br>
             <select name="mall_name" id="mall_name" [formControlName]="'type'">
         <option value="fasttrack">fasttrack</option>
         <option value="normal">normal</option>
       </select>
             <br>
+            <label>Select date:</label>
+            <br>
             <input type="date" id="input" class="form-control" [formControlName]="'date'" Input />
+            <label>Select time:</label>
+            <br>
             <input type="time" id="input" class="form-control" [formControlName]="'time'" Input />
             <button class="btn  btn-primary">Submit</button>
         </form>

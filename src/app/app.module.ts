@@ -43,6 +43,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { Googlemaps3Component } from './googlemaps3/googlemaps3.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import { ReceiptComponent } from './receipt/receipt.component';
     TaskbarComponent,
     Googlemaps2Component,
     Googlemaps3Component,
-    ReceiptComponent
+    ReceiptComponent,
+    
    
   ],
   imports: [

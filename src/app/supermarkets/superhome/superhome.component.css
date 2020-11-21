@@ -2,3 +2,8 @@
     text-align: center;
     position: relative;
 }
+
+.card-title {
+    background-color: #7CFC00;
+    color: white;
+}

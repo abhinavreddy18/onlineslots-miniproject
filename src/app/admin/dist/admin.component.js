@@ -60,6 +60,7 @@ var AdminComponent = /** @class */ (function () {
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.subscription = rxjs_1.timer(0, 60000).pipe(operators_1.switchMap(function () { return _this.admin.fetchSlotCall(); })).subscribe(function (result) { return _this.s1 = result; });
+        this.subscription1 = rxjs_1.timer(0, 60000).pipe(operators_1.switchMap(function () { return _this.admin.fetchSlotCall(); })).subscribe(function (result) { return _this.s2 = result; });
         /*  this.subscription = timer(0, 10000).pipe(
            switchMap(() => this.admin.fetchSlotCall());
          ).subscribe(result => this.s1 = result); */

@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body align-self-center">
+        <form [formGroup]="form" (ngSubmit)="submitForm() ">
+
+            <label>Slotid:</label>
+            <br>
+            <input type="text" id="input" class="form-control" [formControlName]="'slotid'" Input/>
+            <br>
+            <label>Otp:</label>
+            <input type="text" id="input" class="form-control" [formControlName]="'otp'" Input/>
+            <button class="btn  btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div *ngIf="status">
+    <div class="align-self-center">
+        <h1 class="center" style="text-align: center;color:#00ff00">Welcome</h1>
+    </div>
+</div>

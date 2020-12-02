@@ -15,6 +15,7 @@ export class LocationserviceService {
   }
  ]
   getlocations(){
+    console.log("in for banks");
     return this.http.get("http://localhost:9080/test").toPromise();
   }
   constructor(private http: HttpClient) { }

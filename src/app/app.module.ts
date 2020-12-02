@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { AgmCoreModule } from '@agm/core';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,7 +43,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { Googlemaps3Component } from './googlemaps3/googlemaps3.component';
 import { ReceiptComponent } from './receipt/receipt.component';
-
+import { AdminComponent } from './admin/admin.component';
+import { BanklistComponent } from './banklist/banklist.component';
 
 @NgModule({
   declarations: [
@@ -66,12 +68,14 @@ import { ReceiptComponent } from './receipt/receipt.component';
     GeojsonComponent,
     SuperslotComponent,
     BankslotComponent,
+    BanklistComponent,
     HospitalComponent,
     TasksComponent,
     TaskbarComponent,
     Googlemaps2Component,
     Googlemaps3Component,
     ReceiptComponent,
+    AdminComponent,
     
    
   ],
@@ -88,6 +92,11 @@ import { ReceiptComponent } from './receipt/receipt.component';
     MatSelectModule,
     BrowserAnimationsModule,
     OverlayModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyCtk4ddxsHWtckMriPvA-jkOVP34oMY4ek",
+      libraries: ["places", "geometry"]
+      /* apiKey is required, unless you are a premium customer, in which case you can use clientId */
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]

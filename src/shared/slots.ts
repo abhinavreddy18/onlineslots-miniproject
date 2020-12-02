@@ -10,5 +10,5 @@ export class Slots {
     time: String;
     otp: number;
     location: string;
-    duaration: number;
+    duration: number;
 }

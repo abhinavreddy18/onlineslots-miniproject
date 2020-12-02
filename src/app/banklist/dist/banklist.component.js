@@ -42,40 +42,40 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.TasksComponent = void 0;
+exports.BanklistComponent = void 0;
 var core_1 = require("@angular/core");
-var userconstant_1 = require("src/shared/userconstant");
-var TasksComponent = /** @class */ (function () {
-    function TasksComponent(tasks, fast) {
-        this.tasks = tasks;
-        this.fast = fast;
+var forms_1 = require("@angular/forms");
+var locateconstant_1 = require("src/shared/locateconstant");
+var BanklistComponent = /** @class */ (function () {
+    function BanklistComponent(fb, router, locationservice, locationservice1) {
+        this.fb = fb;
+        this.router = router;
+        this.locationservice = locationservice;
+        this.locationservice1 = locationservice1;
+        this.form = this.fb.group({
+            location: ['', forms_1.Validators.required],
+            id: ['', forms_1.Validators.required]
+        });
     }
-    TasksComponent.prototype.ngOnInit = function () {
+    BanklistComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getSlots()];
+                    case 0: return [4 /*yield*/, this.getLocations()];
                     case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.getfastslots()];
-                    case 2:
                         _a.sent();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    TasksComponent.prototype.getSlots = function () {
+    BanklistComponent.prototype.updateName = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log(userconstant_1.userconst);
-                        return [4 /*yield*/, this.tasks.getTasks().then(function (res) {
-                                _this.displayslots = res;
-                                console.log(_this.displayslots);
-                            })];
+                        locateconstant_1.locidcon.locid = this.form.value.location;
+                        return [4 /*yield*/, this.getLocations1()];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -83,14 +83,26 @@ var TasksComponent = /** @class */ (function () {
             });
         });
     };
-    TasksComponent.prototype.getfastslots = function () {
+    BanklistComponent.prototype.submitForm = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                locateconstant_1.locidcon.locid = this.form.value.location;
+                locateconstant_1.locidcon.id = this.form.value.id;
+                console.log(locateconstant_1.locidcon);
+                console.log(this.form.value);
+                this.router.navigateByUrl("bank-form");
+                return [2 /*return*/];
+            });
+        });
+    };
+    BanklistComponent.prototype.getLocations = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fast.getFasttasks().then(function (res) {
-                            _this.displayfastslots = res;
-                            console.log(_this.displayfastslots);
+                    case 0: return [4 /*yield*/, this.locationservice.getlocations().then(function (res) {
+                            _this.locs = res;
+                            console.log(_this.locs);
                         })];
                     case 1:
                         _a.sent();
@@ -99,13 +111,29 @@ var TasksComponent = /** @class */ (function () {
             });
         });
     };
-    TasksComponent = __decorate([
+    BanklistComponent.prototype.getLocations1 = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.locationservice1.getlocations().then(function (res) {
+                            _this.banks = res;
+                            console.log(_this.banks);
+                        })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    BanklistComponent = __decorate([
         core_1.Component({
-            selector: 'app-tasks',
-            templateUrl: './tasks.component.html',
-            styleUrls: ['./tasks.component.css']
+            selector: 'app-banklist',
+            templateUrl: './banklist.component.html',
+            styleUrls: ['./banklist.component.css']
         })
-    ], TasksComponent);
-    return TasksComponent;
+    ], BanklistComponent);
+    return BanklistComponent;
 }());
-exports.TasksComponent = TasksComponent;
+exports.BanklistComponent = BanklistComponent;

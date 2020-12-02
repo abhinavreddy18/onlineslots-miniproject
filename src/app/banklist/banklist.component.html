@@ -1,5 +1,27 @@
-<mat-list role="list">
-    <mat-list-item role="listitem">Bank 1</mat-list-item>
-    <mat-list-item role="listitem">Bank 2</mat-list-item>
-    <mat-list-item role="listitem">Bank 3</mat-list-item>
-</mat-list>
+<div class="card align-self-center">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="card-header align-self-center">
+            <h2 style="text-align: center;">Select Your Bank to Book Slot</h2>
+        </div>
+        <div class="card-body align-self-center">
+            <mat-label style="text-align: center;">Choose a Location:</mat-label>
+            <br>
+            <select id="orders" [formControlName]="'location'" (change)="updateName()">
+        <option *ngFor="let order of locs; let i = index" [value]="locs[i].locid" >
+          {{locs[i].name}}
+        </option>
+      </select>
+            <br>
+            <mat-label>Choose a market:</mat-label>
+            <br>
+            <select id="orders" [formControlName]="'id'">
+    <option *ngFor="let order of banks; let i = index" [value]="banks[i].bankid" >
+        {{banks[i].bank_name}}
+      </option>
+   </select>
+            <br>
+            <button type="submit" class="btn  btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>

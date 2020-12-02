@@ -42,20 +42,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.SuperslotComponent = void 0;
+exports.BankslotComponent = void 0;
+var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var locateconstant_1 = require("src/shared/locateconstant");
 var slots_1 = require("src/shared/slots");
-var userconstant_1 = require("src/shared/userconstant");
 var slotsconstant_1 = require("src/shared/slotsconstant");
-var common_1 = require("@angular/common");
-var SuperslotComponent = /** @class */ (function () {
-    function SuperslotComponent(fb, http, router, fetch) {
+var userconstant_1 = require("src/shared/userconstant");
+var BankslotComponent = /** @class */ (function () {
+    function BankslotComponent(fb, http, fetch, router) {
         this.fb = fb;
         this.http = http;
-        this.router = router;
         this.fetch = fetch;
+        this.router = router;
         this.hours = [];
         this.mins = [];
         this.form = this.fb.group({
@@ -68,31 +68,32 @@ var SuperslotComponent = /** @class */ (function () {
             min: ['', forms_1.Validators.required]
         });
     }
-    SuperslotComponent.prototype.ngOnInit = function () {
+    BankslotComponent.prototype.ngOnInit = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         console.log(locateconstant_1.locidcon);
-                        return [4 /*yield*/, this.fetchmarket()];
+                        return [4 /*yield*/, this.fetchbanks()];
                     case 1:
                         _a.sent();
                         this.Fast = false;
                         this.normal = false;
-                        this.start = parseInt(this["super"].starttime.split(':')[0], 10);
-                        this.end = parseInt(this["super"].endtime.split(':')[0], 10);
+                        this.start = parseInt(this.bank.starttime.split(':')[0], 10);
+                        this.end = parseInt(this.bank.endtime.split(':')[0], 10);
                         this.hours = this.numSequence(this.start, this.end);
                         return [2 /*return*/];
                 }
             });
         });
     };
-    SuperslotComponent.prototype.submitForm = function () {
+    BankslotComponent.prototype.submitForm = function () {
         return __awaiter(this, void 0, void 0, function () {
             var checkdate, check1, check2, check3, checkdate1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        console.log(this.form.getRawValue());
                         this.slot = new slots_1.Slots();
                         console.log(this.form.value.time);
                         this.slot.time = this.form.value.time;
@@ -113,8 +114,8 @@ var SuperslotComponent = /** @class */ (function () {
                         checkdate = this.form.value.date.split('-');
                         console.log(this.nowFormatted.split(':'));
                         check1 = this.form.value.time.split(':');
-                        check2 = this["super"].starttime.split(':');
-                        check3 = this["super"].endtime.split(':');
+                        check2 = this.bank.starttime.split(':');
+                        check3 = this.bank.endtime.split(':');
                         checkdate1 = this.nowFormatted.split(':');
                         console.log(checkdate);
                         console.log(checkdate1);
@@ -144,7 +145,46 @@ var SuperslotComponent = /** @class */ (function () {
             });
         });
     };
-    SuperslotComponent.prototype.fetchDetails = function () {
+    BankslotComponent.prototype.fetchbanks = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.fetch.fetchBanks().then(function (res) {
+                            _this.bank = res;
+                            console.log(_this.bank);
+                        })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    BankslotComponent.prototype.numSequence = function (n1, n2) {
+        console.log(n1);
+        console.log(n2);
+        var arr = [];
+        var i;
+        var j;
+        j = 0;
+        for (i = n1; i < n2; i++) {
+            arr[j] = i;
+            j++;
+        }
+        return arr;
+    };
+    BankslotComponent.prototype.updateSelect = function () {
+        if (this.form.value.type == 'fasttrack') {
+            this.Fast = true;
+            this.normal = false;
+        }
+        else {
+            this.normal = true;
+            this.Fast = false;
+        }
+    };
+    BankslotComponent.prototype.fetchDetails = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
@@ -160,61 +200,22 @@ var SuperslotComponent = /** @class */ (function () {
             });
         });
     };
-    SuperslotComponent.prototype.fetchSlotCall = function () {
-        return this.http.post("http://localhost:9080/superslot", this.slot).toPromise();
+    BankslotComponent.prototype.fetchSlotCall = function () {
+        return this.http.post("http://localhost:9080/bankslot", this.slot).toPromise();
     };
-    SuperslotComponent.prototype.fetchmarket = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fetch.fetchSuper().then(function (res) {
-                            _this["super"] = res;
-                            console.log(_this["super"]);
-                        })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    SuperslotComponent.prototype.numSequence = function (n1, n2) {
-        console.log(n1);
-        console.log(n2);
-        var arr = [];
-        var i;
-        var j;
-        j = 0;
-        for (i = n1; i < n2; i++) {
-            arr[j] = i;
-            j++;
-        }
-        return arr;
-    };
-    SuperslotComponent.prototype.updateMins = function () {
+    BankslotComponent.prototype.updateMins = function () {
         var i;
         for (i = 0; i < 60 / this.form.value.duration; i++) {
             this.mins[i] = i * this.form.value.duration;
         }
     };
-    SuperslotComponent.prototype.updateSelect = function () {
-        if (this.form.value.type == 'fasttrack') {
-            this.Fast = true;
-            this.normal = false;
-        }
-        else {
-            this.normal = true;
-            this.Fast = false;
-        }
-    };
-    SuperslotComponent = __decorate([
+    BankslotComponent = __decorate([
         core_1.Component({
-            selector: 'app-superslot',
-            templateUrl: './superslot.component.html',
-            styleUrls: ['./superslot.component.css']
+            selector: 'app-bankslot',
+            templateUrl: './bankslot.component.html',
+            styleUrls: ['./bankslot.component.css']
         })
-    ], SuperslotComponent);
-    return SuperslotComponent;
+    ], BankslotComponent);
+    return BankslotComponent;
 }());
-exports.SuperslotComponent = SuperslotComponent;
+exports.BankslotComponent = BankslotComponent;

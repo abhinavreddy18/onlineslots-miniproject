@@ -42,70 +42,53 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.TasksComponent = void 0;
+exports.AdminComponent = void 0;
 var core_1 = require("@angular/core");
-var userconstant_1 = require("src/shared/userconstant");
-var TasksComponent = /** @class */ (function () {
-    function TasksComponent(tasks, fast) {
-        this.tasks = tasks;
-        this.fast = fast;
+var forms_1 = require("@angular/forms");
+var rxjs_1 = require("rxjs");
+var operators_1 = require("rxjs/operators");
+var common_1 = require("@angular/common");
+var AdminComponent = /** @class */ (function () {
+    function AdminComponent(fb, admin) {
+        this.fb = fb;
+        this.admin = admin;
+        this.form = this.fb.group({
+            slotid: ['', forms_1.Validators.required],
+            otp: ['', forms_1.Validators.required]
+        });
     }
-    TasksComponent.prototype.ngOnInit = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getSlots()];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.getfastslots()];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
+    AdminComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.subscription = rxjs_1.timer(0, 60000).pipe(operators_1.switchMap(function () { return _this.admin.fetchSlotCall(); })).subscribe(function (result) { return _this.s1 = result; });
+        /*  this.subscription = timer(0, 10000).pipe(
+           switchMap(() => this.admin.fetchSlotCall());
+         ).subscribe(result => this.s1 = result); */
     };
-    TasksComponent.prototype.getSlots = function () {
+    AdminComponent.prototype.submitForm = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        console.log(userconstant_1.userconst);
-                        return [4 /*yield*/, this.tasks.getTasks().then(function (res) {
-                                _this.displayslots = res;
-                                console.log(_this.displayslots);
-                            })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
+                this.status = false;
+                this.time = new Date();
+                this.nowFormatted = common_1.formatDate(this.time, 'HH:mm', 'en-US');
+                console.log(this.nowFormatted);
+                this.check = this.s1.find(function (s) { return s.id == _this.form.value.slotid; });
+                console.log(this.s1);
+                if (this.check.otp == this.form.value.otp && this.check.time == this.nowFormatted) {
+                    this.status = true;
+                    console.log(this.check);
                 }
+                return [2 /*return*/];
             });
         });
     };
-    TasksComponent.prototype.getfastslots = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fast.getFasttasks().then(function (res) {
-                            _this.displayfastslots = res;
-                            console.log(_this.displayfastslots);
-                        })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    TasksComponent = __decorate([
+    AdminComponent = __decorate([
         core_1.Component({
-            selector: 'app-tasks',
-            templateUrl: './tasks.component.html',
-            styleUrls: ['./tasks.component.css']
+            selector: 'app-admin',
+            templateUrl: './admin.component.html',
+            styleUrls: ['./admin.component.css']
         })
-    ], TasksComponent);
-    return TasksComponent;
+    ], AdminComponent);
+    return AdminComponent;
 }());
-exports.TasksComponent = TasksComponent;
+exports.AdminComponent = AdminComponent;

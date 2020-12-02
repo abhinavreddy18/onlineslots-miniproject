@@ -7,8 +7,7 @@
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e",
-        "postinstall": "ng build --aot --prod"
+        "e2e": "ng e2e"
     },
     "repository": {
         "type": "git",
@@ -26,6 +25,7 @@
     "homepage": "https://github.com/ganatan/angular-example-bootstrap#readme",
     "private": true,
     "dependencies": {
+        "@agm/core": "^3.0.0-beta.0",
         "@angular/animations": "10.1.1",
         "@angular/cdk": "^10.2.1",
         "@angular/cli": "10.1.1",

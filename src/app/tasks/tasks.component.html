@@ -2,7 +2,20 @@
 
     <div class="card" *ngFor="let slot of displayslots">
         <div class="card-header">
-            <h4>Supermarket Name: {{ slot.name }}</h4>
+            <h4>{{ slot.name }}</h4>
+
+        </div>
+        <div class="card-body align-self-center">
+            <p>Slot date: {{ slot.date }}</p>
+            <br>
+            <p>Type: {{ slot.type }}</p>
+            <br>
+            <p>Slot time: {{ slot.time }}</p>
+        </div>
+    </div>
+    <div class="card" *ngFor="let slot of displayfastslots">
+        <div class="card-header">
+            <h4>{{ slot.name }}</h4>
 
         </div>
         <div class="card-body align-self-center">

@@ -28,6 +28,8 @@ var bankslot_component_1 = require("./forms/bankslot/bankslot.component");
 var hospital_component_1 = require("./forms/hospital/hospital.component");
 var googlemaps2_component_1 = require("./googlemaps2/googlemaps2.component");
 var receipt_component_1 = require("./receipt/receipt.component");
+var admin_component_1 = require("./admin/admin.component");
+var banklist_component_1 = require("./banklist/banklist.component");
 var routes = [
     { path: '', component: homepage_component_1.HomepageComponent },
     {
@@ -58,6 +60,9 @@ var routes = [
         path: 'super-list', component: superlist_component_1.SuperlistComponent
     },
     {
+        path: 'bank-list', component: banklist_component_1.BanklistComponent
+    },
+    {
         path: 'hospital-home', component: hospitalhome_component_1.HospitalhomeComponent
     },
     {
@@ -80,6 +85,9 @@ var routes = [
     },
     {
         path: 'receipt', component: receipt_component_1.ReceiptComponent
+    },
+    {
+        path: 'admin', component: admin_component_1.AdminComponent
     },
     {
         path: 'bootstrap-prototype',

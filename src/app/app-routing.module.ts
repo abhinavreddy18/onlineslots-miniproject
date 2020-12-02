@@ -20,7 +20,9 @@ import { BankslotComponent } from './forms/bankslot/bankslot.component';
 import { HospitalComponent } from './forms/hospital/hospital.component';
 import { Googlemaps2Component } from './googlemaps2/googlemaps2.component';
 import { ReceiptComponent } from './receipt/receipt.component';
+import { AdminComponent } from './admin/admin.component';
 
+import { BanklistComponent } from './banklist/banklist.component';
 const routes: Routes = [
   { path: '', component: HomepageComponent, },
   {
@@ -59,6 +61,9 @@ const routes: Routes = [
     path: 'super-list', component: SuperlistComponent,
   },
   {
+    path:'bank-list',component: BanklistComponent,
+  },
+  {
     path: 'hospital-home', component:  HospitalhomeComponent,
   },
   {
@@ -81,6 +86,9 @@ const routes: Routes = [
   },
   {
     path:'receipt',component: ReceiptComponent,
+  },
+  {
+    path:'admin',component:AdminComponent,
   },
   {
     path: 'bootstrap-prototype',

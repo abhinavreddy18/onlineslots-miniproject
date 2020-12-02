@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Slots } from 'src/shared/slots';
 import { userconst } from 'src/shared/userconstant';
 import { TasksService } from '../services/tasks.service';
+import { FastslotsService } from '../services/fastslots.service';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -10,11 +11,13 @@ import { TasksService } from '../services/tasks.service';
 export class TasksComponent implements OnInit {
   
   
-  constructor(private tasks: TasksService) { }
+  constructor(private tasks: TasksService,private fast:FastslotsService) { }
   async ngOnInit() {
     await this.getSlots();
+    await this.getfastslots();
   }
   displayslots : Slots[];
+  displayfastslots: Slots[];
   async  getSlots() {
     console.log(userconst);
     await this.tasks.getTasks().then(
@@ -25,5 +28,14 @@ export class TasksComponent implements OnInit {
         
       }
     );
+}
+
+async getfastslots(){
+  await this.fast.getFasttasks().then(
+    res=>{
+      this.displayfastslots=res as Slots[];
+      console.log(this.displayfastslots);
+    }
+  )
 }
 }

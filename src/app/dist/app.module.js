@@ -14,6 +14,7 @@ var grid_list_1 = require("@angular/material/grid-list");
 var list_1 = require("@angular/material/list");
 var form_field_1 = require("@angular/material/form-field");
 var forms_1 = require("@angular/forms");
+var core_2 = require("@agm/core");
 var google_maps_1 = require("@angular/google-maps");
 var http_1 = require("@angular/common/http");
 var app_component_1 = require("./app.component");
@@ -45,6 +46,9 @@ var select_1 = require("@angular/material/select");
 var animations_1 = require("@angular/platform-browser/animations");
 var overlay_1 = require("@angular/cdk/overlay");
 var googlemaps3_component_1 = require("./googlemaps3/googlemaps3.component");
+var receipt_component_1 = require("./receipt/receipt.component");
+var admin_component_1 = require("./admin/admin.component");
+var banklist_component_1 = require("./banklist/banklist.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -71,11 +75,14 @@ var AppModule = /** @class */ (function () {
                 geojson_component_1.GeojsonComponent,
                 superslot_component_1.SuperslotComponent,
                 bankslot_component_1.BankslotComponent,
+                banklist_component_1.BanklistComponent,
                 hospital_component_1.HospitalComponent,
                 tasks_component_1.TasksComponent,
                 taskbar_component_1.TaskbarComponent,
                 googlemaps2_component_1.Googlemaps2Component,
-                googlemaps3_component_1.Googlemaps3Component
+                googlemaps3_component_1.Googlemaps3Component,
+                receipt_component_1.ReceiptComponent,
+                admin_component_1.AdminComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -90,6 +97,11 @@ var AppModule = /** @class */ (function () {
                 select_1.MatSelectModule,
                 animations_1.BrowserAnimationsModule,
                 overlay_1.OverlayModule,
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: "AIzaSyCtk4ddxsHWtckMriPvA-jkOVP34oMY4ek",
+                    libraries: ["places", "geometry"]
+                    /* apiKey is required, unless you are a premium customer, in which case you can use clientId */
+                })
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]

@@ -1,28 +1,48 @@
-<form [formGroup]="form" (ngSubmit)="submitForm()">
-    <label for="mall_name">Select mall:</label>
-    <select name="mall_name" id="mall_name" [formControlName]="'name'">
-    <option value="mall-1">mall-1</option>
-    <option value="mall-2">mall-2</option>
+<div class="card">
+    <div class="card-header">
+        <h1 style="text-align: center;">Fill in details to book Slot</h1>
+    </div>
+    <div class="card-body align-self-center">
+        <form [formGroup]="form" (ngSubmit)="submitForm() ">
+
+            <label for="time">Select shopping time(in mins):  </label>
+            <br>
+            <select name="time" id="time" [formControlName]="'duration'" (change)='updateMins()'>
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="30">30</option>
+  <option value="40">40</option>
+  <option value="50">50</option>
+  <option value="60">60(1 hr)</option>
+</select>
+            <br>
+
+            <label>Choose type:  </label>
+            <br>
+            <select name="mall_name" id="mall_name" [formControlName]="'type'" (change)="updateSelect()">
+      <option value="fasttrack">fasttrack</option>
+      <option value="normal">normal</option>
+    </select>
+            <br>
+            <label>Select date:</label>
+            <br>
+            <input type="date" id="input" class="form-control" [formControlName]="'date'" Input />
+            <label>Select time:</label>
+            <br>
+            <input *ngIf="Fast" type="time" id="input" class="form-control" [formControlName]="'time'" Input />
+            <br>
+            <select *ngIf="normal" name="hours" id="hours" [formControlName]="'hours'" Input>
+              <option *ngFor="let n of hours;let i = index" [value]="n" >
+                  {{n}}
+                </option>
   </select>
-    <br>
-    <label for="time">Select shopping time(in mins):</label>
-    <select name="time" id="time" [formControlName]="'time'">
-    <option value="10mins">10</option>
-    <option value="20mins">20</option>
-    <option value="30mins">30</option>
-    <option value="40mins">40</option>
-    <option value="50mins">50</option>
-    <option value="60mins">60(1 hr)</option>
-  </select>
-    <br>
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" [formControlName]="'email'">
-    <br>
-    <label>Choose type:</label><br>
-    <select name="mall_name" id="mall_name" [formControlName]="'type'">
-        <option value="fasttrack">fasttrack</option>
-        <option value="normal">normal</option>
-      </select>
-    <br>
-    <button class="btn  btn-primary">Submit</button>
-</form>
+            <select *ngIf="normal" name="hours" id="hours" [formControlName]="'min'" Input>
+      <option *ngFor="let m of mins;let i = index" [value]="m" >
+          {{m}}
+        </option>
+</select>
+            <br>
+            <button class="btn  btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

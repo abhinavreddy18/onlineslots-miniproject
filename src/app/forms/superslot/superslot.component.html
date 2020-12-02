@@ -7,7 +7,7 @@
 
             <label for="time">Select shopping time(in mins):  </label>
             <br>
-            <select name="time" id="time" [formControlName]="'duration'">
+            <select name="time" id="time" [formControlName]="'duration'" (change)='updateMins()'>
     <option value="10">10</option>
     <option value="20">20</option>
     <option value="30">30</option>
@@ -19,7 +19,7 @@
 
             <label>Choose type:  </label>
             <br>
-            <select name="mall_name" id="mall_name" [formControlName]="'type'">
+            <select name="mall_name" id="mall_name" [formControlName]="'type'" (change)="updateSelect()">
         <option value="fasttrack">fasttrack</option>
         <option value="normal">normal</option>
       </select>
@@ -29,7 +29,19 @@
             <input type="date" id="input" class="form-control" [formControlName]="'date'" Input />
             <label>Select time:</label>
             <br>
-            <input type="time" id="input" class="form-control" [formControlName]="'time'" Input />
+            <input *ngIf="Fast" type="time" id="input" class="form-control" [formControlName]="'time'" Input />
+            <br>
+            <select *ngIf="normal" name="hours" id="hours" [formControlName]="'hours'" Input>
+                <option *ngFor="let n of hours;let i = index" [value]="n" >
+                    {{n}}
+                  </option>
+    </select>
+            <select *ngIf="normal" name="hours" id="hours" [formControlName]="'min'" Input>
+        <option *ngFor="let m of mins;let i = index" [value]="m" >
+            {{m}}
+          </option>
+</select>
+            <br>
             <button class="btn  btn-primary">Submit</button>
         </form>
     </div>

@@ -5,4 +5,6 @@ export class Super{
    lattitude: number;
    longitude: number;
    location: number;
+   starttime: string;
+   endtime: string;
 }
